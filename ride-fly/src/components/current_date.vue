@@ -1,16 +1,5 @@
 <script>
-import DocumentationIcon from './icons/IconDocumentation.vue'
-</script>
-
-<template>
-    <header>
-      <DocumentationIcon />
-      <h1>25/1 Wednesday {{ Date }}</h1>
-    </header>
-  </template>
-  
-  <script>
-  export default {
+ export default {
   name: 'Date',
   props: {
     arr: {
@@ -19,4 +8,11 @@ import DocumentationIcon from './icons/IconDocumentation.vue'
   }
   }
 }
-  </script>
+</script>
+
+<template>
+    <header>
+      <DocumentationIcon />
+      <h1>25/1 Wednesday {{ Date }}</h1>
+    </header>
+  </template>

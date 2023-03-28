@@ -8,7 +8,6 @@ export default {
 }
 import main_header from '../components/main_header.vue';
 import message_card from '../components/message_card.vue';
-import chat_icon from '../components/chat_icon.vue';
 </script>
 
 <template>
@@ -16,7 +15,6 @@ import chat_icon from '../components/chat_icon.vue';
     <main_header title="Messages">
     </main_header>
     <message_card></message_card>
-    <chat-icon></chat-icon>
   </div>
 </template>
 

@@ -1,11 +1,6 @@
-<script setup>
-import DocumentationIcon from './icons/IconDocumentation.vue'
-</script>
-
 <template>
     <header>
-      <h1>{{ title }}</h1>
-      <DocumentationIcon />
+      <h1> {{ title }}</h1>
     </header>
   </template>
   
@@ -14,11 +9,6 @@ import DocumentationIcon from './icons/IconDocumentation.vue'
   name: 'title',
   props: {
     title: {
-      type: String,
-      required: true
-    }
-    ,
-    iconUrl: {
       type: String,
       required: true
     }
