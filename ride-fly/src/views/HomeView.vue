@@ -5,8 +5,9 @@ export default {
     current_date
 }  
 }
-import Main_header from '../components/main_header.vue';
-import Current_date from '../components/current_date.vue';
+
+import main_header from '../components/main_header.vue';
+import current_date from '../components/current_date.vue';
 </script>
 
 <template>
