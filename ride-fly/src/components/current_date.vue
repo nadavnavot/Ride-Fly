@@ -11,8 +11,5 @@
 </script>
 
 <template>
-    <header>
-      <DocumentationIcon />
-      <h1>25/1 Wednesday {{ Date }}</h1>
-    </header>
+      <p>25/1 Wednesday</p>
   </template>

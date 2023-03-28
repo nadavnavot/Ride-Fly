@@ -14,5 +14,7 @@ import current_date from '../components/current_date.vue';
 <div>
     <main_header title="Home">
     </main_header>
+    <current_date>
+    </current_date>
   </div>
 </template>

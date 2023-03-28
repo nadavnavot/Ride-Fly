@@ -1,0 +1,103 @@
+<template>
+    <card>
+        <cardrow1-col1>
+            <div>San Vicente {{ pickup }}</div>
+            <div>5:30 {{ pickup.time }}</div>
+        </cardrow1-col1>
+        <cardrow1-col2>
+            <DocumentationIcon />
+        </cardrow1-col2>
+        <cardrow1-col3>
+            <div>Seville Airport {{ dropoff }}</div>
+            <div>6:00 {{ dropoff.detail }}</div>
+        </cardrow1-col3>
+        <cardrow2-col1>
+            <div>Juan {{ driver }} </div>
+            <div> {{ driver.profile }} </div>
+            <div>4.7 {{ driver.rate }}</div>
+            <svg></svg>
+        </cardrow2-col1>
+        <card-row2-col2>
+            <div>6€ {{ driver.price }}</div>
+        </card-row2-col2>
+    </card>
+
+</template>
+
+<script>
+    export default {
+        name: 'pickup',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'pickup.time',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        },
+        name: 'dropoff',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'dropoff.detail',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'driver',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'driver.profile',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'driver.rate',
+        props: {
+            title: {
+                type: Number,
+                required: true
+            }
+        }, name: 'driver.price',
+        props: {
+            title: {
+                type: Number,
+                required: true
+            }
+        }
+    }
+</script>
+
+<style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        text-align: center;
+    }
+</style>
