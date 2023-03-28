@@ -1,21 +1,21 @@
 <script>
 export default {
   components: {
-    Main_header,
-    Messages,
-    chat-icon
+    main_header,
+    message_card,
+    chat_icon
 }  
 }
-import Main_header from '../components/Main_header.vue';
-import Messages from '../components/MessageCard.vue';
+import main_header from '../components/main_header.vue';
+import message_card from '../components/message_card.vue';
 import chat_icon from '../components/chat_icon.vue';
 </script>
 
 <template>
 <div>
-    <Main_header title="Messages">
-    </Main_header>
-    <Message_Card></Message_Card>
+    <main_header title="Messages">
+    </main_header>
+    <message_card></message_card>
     <chat-icon></chat-icon>
   </div>
 </template>

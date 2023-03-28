@@ -12,8 +12,8 @@
             <div>6:00 {{ dropoff.detail }}</div>
         </card-row1-col3>
         <card-row2-col1>
-            <div>Juan {{ driver }}</div>
-            <img src="">
+            <div>Juan {{ driver }} </div>
+            <div> {{ driver.profile }} </div>
             <div>4.7 {{ driver.rate }}</div>
             <svg></svg>
         </card-row2-col1>
@@ -52,6 +52,12 @@
                 required: true
             }
         }, name: 'driver',
+        props: {
+            title: {
+                type: String,
+                required: true
+            }
+        }, name: 'driver.profile',
         props: {
             title: {
                 type: String,
