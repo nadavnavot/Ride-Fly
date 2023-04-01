@@ -1,0 +1,13 @@
+@import './base.css';
+
+
+
+
+a,
+.green {
+  text-decoration: none;
+  color: #166BC8;
+  transition: 0.4s;
+}
+
+

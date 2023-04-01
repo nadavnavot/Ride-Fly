@@ -5,9 +5,9 @@ import navbar from './components/navbar.vue';
 
 <template>
   <header>
-    <img class="logo" src="./assets/logo.png" width="125" height="125" />
+    <img class="logo" src="@/assets/logo.png" width="125" height="125" />
+    <navbar />
   </header>
-  <navbar />
   <router-view>
   </router-view>
 </template>
