@@ -26,14 +26,23 @@ const router = createRouter({
       component: () => import('../views/FlightsView.vue')
     },
     {
-      path: '/Chat',
-      name: 'Chat',
+      path: '/ChatroomView',
+      name: 'ChatroomView',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ChatView.vue')
+      component: () => import('../views/ChatroomView.vue')
+    },
+    {
+      path: '/MessagesView/:id',
+      name: 'Messages',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/MessagesView.vue')
     }
   ]
 })
 
 export default router
+

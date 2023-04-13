@@ -1,7 +1,6 @@
 <template>
-    <header class="flex-row-container">
+    <header class="header">
       <h1> {{ title }}</h1>
-      <svg></svg>
     </header>
   </template>
   
@@ -18,7 +17,7 @@
   </script>
 
   <style scoped>
-.flex-row-container{
+.header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
