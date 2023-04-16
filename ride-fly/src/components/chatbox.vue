@@ -17,13 +17,13 @@
 
 <script lang="ts">
 import io from 'socket.io-client';
-const socket = io('http://localhost:5174'); // Replace with your server URL
+const socket = io('http://localhost:5173'); // Replace with your server URL
 
 export default {
 name:'Chatbox',
   data() {
     return {
-      messages: [{id:1, content: 'hello' , sender: 'Berre'}],
+      messages: [{id:1, content: 'Hi, no problem see you later.' , sender: 'Pedro'}],
       newMessage: '',
     };
   },

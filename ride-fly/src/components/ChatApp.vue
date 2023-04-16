@@ -38,7 +38,7 @@
     methods: {
       join() {
         this.joined = true;
-        this.socketInstance = io("http://localhost:3000");
+        this.socketInstance = io("http://localhost:5175");
         this.socketInstance.on(
           "message:received", (data) => {
             this.messages = this.messages.concat(data);
