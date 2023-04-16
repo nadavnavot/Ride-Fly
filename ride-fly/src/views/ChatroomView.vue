@@ -12,7 +12,7 @@ import navbar from '../components/navbar.vue';
 </script>
 
 <template>
-  <main_header title="Messages"></main_header>
+  <main_header title="Chatroom"></main_header>
   <router-link to="/MessagesView/1">
  <message></message></router-link>
   <router-link to="/MessagesView/1">
