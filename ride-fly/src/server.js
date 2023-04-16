@@ -5,12 +5,16 @@ const mongoose = require("mongoose");
 let users = [];
 let messages = [];
 
-mongoose.connect("mongodb://localhost:27017/chatapp");
+// Connect to MongoDB using Mongoose
+
+mongoose.connect("mongodb://localhost:ride-fly");
 
 const ChatSchema = mongoose.Schema({
   username: String,
   msg: String
 });
+
+// Your Express, Socket.io, and Mongoose configuration goes here
 
 const ChatModel = mongoose.model("chat", ChatSchema);
 
@@ -57,6 +61,8 @@ io.on("connection", socket => {
     users.splice(users.indexOf(socket), 1);
   });
 });
+
+// Start the server
 
 http.listen(process.env.PORT || 3000, () => {
   console.log("Listening on port %s", process.env.PORT || 3000);

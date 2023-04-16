@@ -1,16 +1,16 @@
 <script>
 export default {
   components: {
-    chatbox
+    ChatRoom
 }  
 }
-import chatbox from '../components/chatbox.vue';
+import ChatRoom from '../components/ChatRoom.vue';
 /* import ChatRoom from '../components/ChatRoom.vue'; */
 /* import ChatApp from '../components/ChatApp.vue'; */
 </script>
 
 <template>
-    <chatbox></chatbox>
+    <ChatRoom></ChatRoom>
 <!--    <ChatRoom></ChatRoom> -->
 <!--    <ChatApp></ChatApp> -->
 
