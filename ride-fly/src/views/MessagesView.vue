@@ -11,7 +11,7 @@
 
 <script>
 import io from 'socket.io-client';
-import ChatRoom from '../components/ChatRoom';
+import ChatRoom from '../components/ChatRoom.vue'
 
 export default {
 	name: 'ride-fly',
