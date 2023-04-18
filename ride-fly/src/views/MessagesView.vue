@@ -1,91 +1,80 @@
-<script>
-export default {
-  components: {
-    ChatRoom
-}  
-}
-import ChatRoom from '../components/ChatRoom.vue';
-/* import ChatRoom from '../components/ChatRoom.vue'; */
-/* import ChatApp from '../components/ChatApp.vue'; */
-</script>
-
 <template>
-    <ChatRoom></ChatRoom>
-<!--    <ChatRoom></ChatRoom> -->
-<!--    <ChatApp></ChatApp> -->
-
- <!--- username --->
-
- <!-- <div id="app">
-  <div class="chat-name">
-    <input type="text" placeholder="Enter the name" v-model="sender">  
-  </div>
- </div>
- -->
- <!--- chat messages --->
-
- <!-- <div class="chatlist">
-
-  <div class="chat-list-item" v-for="(m, index) in messages" :key="index">
-    <h1>
-      {{ m.username }}
-      <span>{{ m.message }}</span>
-      <small>{{ m.time }}</small>
-    </h1>
-  </div>
-
- </div> -->
-
- <!--- chat control panel --->
- <!-- <div class="chat-control">
-  <form @submit.prevent="sendMessage">
-    <input type="text" placeholder="Type here ..." v-model="message">
-    <button type="submit">send</button>
-  </form>
-
- </div>
- -->
-
-
+	<div id="app">
+		<div class="header">
+			<h1>Chatroom</h1>
+			<p class="username">Username: {{ username }}</p>
+			<p class="online">Online: {{ users.length }}</p>
+		</div>
+		<ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
+	</div>
 </template>
 
-<!-- <script> -->
+<script>
+import io from 'socket.io-client';
+import ChatRoom from '../components/ChatRoom';
 
-<!-- /* export default {
-  data: () => ({  
-    
-    messages: [],
-
-    message: '',
-
-    sender: ''
-
-}),
-
-methods: {
-
-  sendMessage(){
-    this.$socket.emit('send', ({message: this.message, sender: 
-    
-    this.sender, time: this.$moment().format('hh:mm') }));
-
-  }
-
-},
-
-mounted() {
-  this.$socket.on('update', (data) => {
-    this.messages = data;
-  })
-},
-
+export default {
+	name: 'ride-fly',
+	components: {
+		ChatRoom
+	},
+	data: function () {
+		return {
+			username: "",
+			socket: io("http://localhost:5173"),
+			messages: [],
+			users: []
+		}
+	},
+	methods: {
+		joinServer: function () {
+			this.socket.on('loggedIn', data => {
+				this.messages = data.messages;
+				this.users = data.users;
+				this.socket.emit('newuser', this.username);
+			});
+			this.listen();
+		},
+		listen: function () {
+			this.socket.on('userOnline', user => {
+				this.users.push(user);
+			});
+			this.socket.on('userLeft', user => {
+				this.users.splice(this.users.indexOf(user), 1);
+			});
+			this.socket.on('msg', message => {
+				this.messages.push(message);
+			});
+		},
+		sendMessage: function (message) {
+			this.socket.emit('msg', message);
+		}
+	},
+	mounted: function () {
+		this.username = prompt("What is your username?", "Anonymous");
+		if (!this.username) {
+			this.username = "Anonymous";
+		}
+		this.joinServer();
+	}
 }
 </script>
 
-
-<style scoped>
-* {
-  box-sizing: border-box;
-} */
-
-/* </style> */ -->
+<style lang="scss">
+body {
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	color: #2C3E50;
+	margin: 0;
+	padding: 0;
+}
+#app {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+	padding: 15px;
+	box-sizing: border-box;
+}
+</style>
