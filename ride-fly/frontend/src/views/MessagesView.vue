@@ -18,25 +18,15 @@ export default {
 	components: {
 		ChatRoom
 	},
-	data: function () {
-		return {
-			username: "",
-			socket: io("http://localhost:5173"),
-			messages: [],
-			users: []
-		}
-	},
-	methods: {
-		joinServer: function () {
-			this.socket.on('loggedIn', data => {
+	created() {
+		this.socket = io("http://localhost:3000");
+
+		this.socket.on('loggedIn', data => {
 				this.messages = data.messages;
 				this.users = data.users;
 				this.socket.emit('newuser', this.username);
-			});
-			this.listen();
-		},
-		listen: function () {
-			this.socket.on('userOnline', user => {
+
+				this.socket.on('userOnline', user => {
 				this.users.push(user);
 			});
 			this.socket.on('userLeft', user => {
@@ -45,7 +35,24 @@ export default {
 			this.socket.on('msg', message => {
 				this.messages.push(message);
 			});
+			});
+
+	},
+	data: function () {
+		return {
+			username: "",
+			socket: null,
+			messages: [],
+			users: []
+		}
+	},
+	methods: {
+		joinServer: function () {
+			this.connect();
 		},
+		// listen: function () {
+		
+		// },
 		sendMessage: function (message) {
 			this.socket.emit('msg', message);
 		}

@@ -8,7 +8,7 @@ let messages = [];
 
 // Connect to MongoDB using Mongoose
 
-mongoose.connect("mongodb://localhost:27017/chatapp");
+// mongoose.connect("mongodb://localhost:27017/chatapp");
 
 const ChatSchema = mongoose.Schema({
   username: String,
@@ -19,11 +19,13 @@ const ChatSchema = mongoose.Schema({
 
 const ChatModel = mongoose.model("chat", ChatSchema);
 
-ChatModel.find((err, result) => {
-  if (err) throw err;
+// ChatModel.find((err, result) => {
+//   if (err) throw err;
 
-  messages = result;
-});
+//   messages = result;
+// });
+
+// messages = ChatModel.find();
 
 io.on("connection", socket => {
   socket.emit('loggedIn', {
@@ -65,6 +67,6 @@ io.on("connection", socket => {
 
 // Start the server
 
-http.listen(process.env.PORT || 5173, () => {
-  console.log("Listening on port %s", process.env.PORT || 5173);
+http.listen(process.env.PORT || 3000, () => {
+  console.log("Listening on port %s", process.env.PORT || 3000);
 });
