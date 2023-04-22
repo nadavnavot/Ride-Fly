@@ -3,7 +3,7 @@ const app = require("express")();
 const http = require("http").Server(app);
 const io = require("socket.io")(http,
   cors: {
-  origin: 'http://example.com',
+  origin: "http://localhost:3000",
   methods: ['GET', 'POST']
 });
 const mongoose = require("mongoose");
@@ -37,6 +37,8 @@ io.on("connection", socket => {
     messages: messages
   });
 
+  console.log("step 1", io);
+
   socket.on('newuser', username => {
     console.log(`${username} has arrived at the party.`);
     socket.username = username;
@@ -45,6 +47,8 @@ io.on("connection", socket => {
 
     io.emit('userOnline', socket.username);
   });
+
+  console.log("step 2", socket);
 
   socket.on('msg', msg => {
     let message = new ChatModel({
