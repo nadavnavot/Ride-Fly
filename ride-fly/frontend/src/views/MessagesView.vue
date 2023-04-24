@@ -20,23 +20,24 @@ export default {
 	},
 	created() {
 		this.socket = io("http://localhost:3000");
-
+		
 		this.socket.on('loggedIn', data => {
-				this.messages = data.messages;
-				this.users = data.users;
-				this.socket.emit('newuser', this.username);
+			this.messages = data.messages;
+			this.users = data.users;
+			this.socket.emit('newuser', this.username);
+		});
+		
+		this.socket.on('userOnline', user => {
+			this.users.push(user);
+		});
 
-				this.socket.on('userOnline', user => {
-				this.users.push(user);
-			});
-			this.socket.on('userLeft', user => {
-				this.users.splice(this.users.indexOf(user), 1);
-			});
-			this.socket.on('msg', message => {
-				this.messages.push(message);
-			});
-			});
+		this.socket.on('userLeft', user => {
+			this.users.splice(this.users.indexOf(user), 1);
+		});
 
+		this.socket.on('msg', message => {
+			this.messages.push(message);
+		});
 	},
 	data: function () {
 		return {
@@ -48,23 +49,23 @@ export default {
 	},
 	methods: {
 		joinServer: function () {
-			this.connect();
+			this.socket.connect();
 		},
 		// listen: function () {
-		
-		// },
-		sendMessage: function (message) {
-			this.socket.emit('msg', message);
+			
+			// },
+			sendMessage: function (message) {
+				this.socket.emit('msg', message);
+			}
+		},
+		mounted: function () {
+			this.username = prompt("What is your username?", "Anonymous");
+			if (!this.username) {
+				this.username = "Anonymous";
+			}
+			this.joinServer();
 		}
-	},
-	mounted: function () {
-		this.username = prompt("What is your username?", "Anonymous");
-		if (!this.username) {
-			this.username = "Anonymous";
-		}
-		this.joinServer();
 	}
-}
 </script>
 
 <style lang="scss">
