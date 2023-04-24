@@ -1,10 +1,13 @@
 // Add modules
 const app = require("express")();
 const http = require("http").Server(app);
-const io = require("socket.io")(http,
+const io = require("socket.io")(http, {
   cors: {
-  origin: "http://localhost:3000",
-  methods: ['GET', 'POST']
+    origin: "*",  // don't use in production
+    // ALSO POSSIBLE, SAFER BUT MORE CHANCE OF CORS ISSUES
+    // origin: "http://localhost:5173",
+    methods: ['GET', 'POST']
+  }
 });
 const mongoose = require("mongoose");
 let users = [];
@@ -36,35 +39,35 @@ io.on("connection", socket => {
     users: users.map(s => s.username),
     messages: messages
   });
-
+  
   console.log("step 1", io);
-
+  
   socket.on('newuser', username => {
     console.log(`${username} has arrived at the party.`);
     socket.username = username;
-
+    
     users.push(socket);
-
+    
     io.emit('userOnline', socket.username);
   });
-
+  
   console.log("step 2", socket);
-
+  
   socket.on('msg', msg => {
     let message = new ChatModel({
       username: socket.username,
       msg: msg
     });
-
+    
     message.save((err, result) => {
       if (err) throw err;
-
+      
       messages.push(result);
-
+      
       io.emit('msg', result);
     });
   });
-
+  
   // Disconnect
   socket.on("disconnect", () => {
     console.log(`${socket.username} has left the party.`);
