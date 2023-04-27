@@ -15,7 +15,7 @@ let messages = [];
 
 // Connect to MongoDB using Mongoose
 
-// mongoose.connect("mongodb://localhost:27017/chatapp");
+/* mongoose.connect("mongodb://localhost:27017/ride_fly"); */
 
 const ChatSchema = mongoose.Schema({
   username: String,
@@ -39,35 +39,35 @@ io.on("connection", socket => {
     users: users.map(s => s.username),
     messages: messages
   });
-  
+
   console.log("step 1", io);
-  
+
   socket.on('newuser', username => {
     console.log(`${username} has arrived at the party.`);
     socket.username = username;
-    
+
     users.push(socket);
-    
+
     io.emit('userOnline', socket.username);
   });
-  
+
   console.log("step 2", socket);
-  
+
   socket.on('msg', msg => {
     let message = new ChatModel({
       username: socket.username,
       msg: msg
     });
-    
+
     message.save((err, result) => {
       if (err) throw err;
-      
+
       messages.push(result);
-      
+
       io.emit('msg', result);
     });
   });
-  
+
   // Disconnect
   socket.on("disconnect", () => {
     console.log(`${socket.username} has left the party.`);
