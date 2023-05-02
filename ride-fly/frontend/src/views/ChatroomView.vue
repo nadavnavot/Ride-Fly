@@ -1,7 +1,6 @@
 <script>
 export default {
   components: {
-    main_header,
     message,
     navbar
 }  

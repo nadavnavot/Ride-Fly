@@ -19,43 +19,43 @@ export default {
 		ChatRoom
 	},
 	created() {
-		this.socket = io("http://localhost:3000");
+		this.client = io("http://localhost:3000");
 		
-		this.socket.on('loggedIn', data => {
+		this.client.on('loggedIn', data => {
 			this.messages = data.messages;
 			this.users = data.users;
-			this.socket.emit('newuser', this.username);
+			this.client.emit('newuser', this.username);
 		});
 		
-		this.socket.on('userOnline', user => {
+		this.client.on('userOnline', user => {
 			this.users.push(user);
 		});
 
-		this.socket.on('userLeft', user => {
+		this.client.on('userLeft', user => {
 			this.users.splice(this.users.indexOf(user), 1);
 		});
 
-		this.socket.on('msg', message => {
+		this.client.on('msg', message => {
 			this.messages.push(message);
 		});
 	},
 	data: function () {
 		return {
 			username: "",
-			socket: null,
+			client: null,
 			messages: [],
 			users: []
 		}
 	},
 	methods: {
 		joinServer: function () {
-			this.socket.connect();
+			this.client.connect();
 		},
 		// listen: function () {
 			
 			// },
 			sendMessage: function (message) {
-				this.socket.emit('msg', message);
+				this.client.emit('msg', message);
 			}
 		},
 		mounted: function () {
@@ -67,6 +67,7 @@ export default {
 		}
 	}
 </script>
+
 
 <style lang="scss">
 body {

@@ -1,7 +1,14 @@
-// Add modules
+// Set up a simple chat application using Express, Socket.io, and Mongoose, a MongoDB object modeling tool. 
+
+// Set up the required modules (Express, Socket.io, and Mongoose). 
+
+// The app constant creates a new Express application instance.
 const app = require("express")();
+// The http constant creates an HTTP server instance that wraps the app instance.
 const http = require("http").Server(app);
+//The io constant creates a new Socket.io instance, passing the http server as an argument.
 const io = require("socket.io")(http, {
+  // The cors object is an option passed to socket.io which defines Cross-Origin Resource Sharing settings to allow clients to connect from other domains.
   cors: {
     origin: "*",  // don't use in production
     // ALSO POSSIBLE, SAFER BUT MORE CHANCE OF CORS ISSUES
@@ -9,21 +16,22 @@ const io = require("socket.io")(http, {
     methods: ['GET', 'POST']
   }
 });
+
+// Mongoose is imported, and two empty arrays are initialized to keep track of users and messages.
 const mongoose = require("mongoose");
 let users = [];
 let messages = [];
 
-// Connect to MongoDB using Mongoose
+// Connects the application to a MongoDB database using the Mongoose library.
+mongoose.connect("mongodb+srv://Adinda:In1992diaadinda@cluster0.gf4ehvm.mongodb.net/ride_fly")
 
-/* mongoose.connect("mongodb://localhost:27017/ride_fly"); */
-
+// Creates a Mongoose schema for a chat message, which contains a username and a msg.
 const ChatSchema = mongoose.Schema({
   username: String,
   msg: String
 });
 
-// Your Express, Socket.io, and Mongoose configuration goes here
-
+// Creates a new Mongoose model for the chat schema, using the mongoose.model method.
 const ChatModel = mongoose.model("chat", ChatSchema);
 
 // ChatModel.find((err, result) => {
@@ -34,47 +42,52 @@ const ChatModel = mongoose.model("chat", ChatSchema);
 
 // messages = ChatModel.find();
 
-io.on("connection", socket => {
-  socket.emit('loggedIn', {
+io.on("connection", client => {
+  client.emit('loggedIn', {
     users: users.map(s => s.username),
     messages: messages
   });
 
   console.log("step 1", io);
 
-  socket.on('newuser', username => {
+  client.on('newuser', username => {
     console.log(`${username} has arrived at the party.`);
-    socket.username = username;
+    client.username = username;
 
-    users.push(socket);
+    users.push(client);
 
-    io.emit('userOnline', socket.username);
+    io.emit('userOnline', client.username);
   });
 
-  console.log("step 2", socket);
+  console.log("step 2", client);
 
-  socket.on('msg', msg => {
+  client.on('msg', msg => {
     let message = new ChatModel({
-      username: socket.username,
+      username: client.username,
       msg: msg
     });
 
-    message.save((err, result) => {
-      if (err) throw err;
+    message.save()
+      .then((result) => {
+        messages.push(result);
+        io.emit('msg', result);
+      });
 
-      messages.push(result);
-
-      io.emit('msg', result);
-    });
+    /*     message.save();
+    
+        messages.push(result);
+    
+        io.emit('msg', result); */
   });
 
   // Disconnect
-  socket.on("disconnect", () => {
-    console.log(`${socket.username} has left the party.`);
-    io.emit("userLeft", socket.username);
-    users.splice(users.indexOf(socket), 1);
+  client.on("disconnect", () => {
+    console.log(`${client.username} has left the party.`);
+    io.emit("userLeft", client.username);
+    users.splice(users.indexOf(client), 1);
   });
 });
+
 
 // Start the server
 
