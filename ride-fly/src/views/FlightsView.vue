@@ -1,3 +1,12 @@
+<script>
+import main_title from '../components/main_title.vue';
+
+export default {
+  components: {
+    main_title
+}  
+}
+</script>
 <template>
-    <h1>My flights</h1>
+    <main_title title="My Flights" />
 </template>

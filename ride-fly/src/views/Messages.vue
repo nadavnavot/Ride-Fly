@@ -3,11 +3,12 @@ export default {
   components: {
     main_header,
     message_card,
-    chat_icon
+    chat_icon,
 }  
 }
 import main_header from '../components/main_header.vue';
 import message_card from '../components/message_card.vue';
+
 </script>
 
 <template>

@@ -10,6 +10,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@mollie/api-client": "^3.7.0",
+    "@vue-stripe/vue-stripe": "^4.5.0",
+    "axios": "^1.3.5",
+    "pinia": "^2.0.35",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },

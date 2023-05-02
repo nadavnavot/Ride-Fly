@@ -6,8 +6,11 @@
   box-sizing: border-box;
   margin: 0;
   position: relative;
-  font-family: Bebas Neue;
-  font-weight: normal;
+}
+
+body{
+  font-family: 'Roboto';
+  font-style: normal;
 }
 
 #app {
@@ -31,9 +34,13 @@ a {
   color:#F1C933;
 }
 
-.h1{
-  font-family: Bebas Neue;
-  font-size: 28px;
-  color: #1B2B71;
+.button{
+  color: black;
+  background-color:#F1C933;
+  padding:15px;
+  border-radius: 9px;
+  border:none;
+  width: 140px;
+  font-size: larger;
+  cursor: pointer;
 }
-

@@ -1,3 +1,14 @@
+<script>
+import main_title from '../components/main_title.vue';
+
+
+export default {
+  components: {
+    main_title
+}  
+}
+</script>
 <template>
-    <h1>Chat</h1>
+    <main_title title="Chat" />
+    <card/>
 </template>
