@@ -1,1 +1,0 @@
-<script>import Greet from '../components/greet'</script>
