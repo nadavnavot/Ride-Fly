@@ -12,7 +12,9 @@ export default {
 }
 </script>
 <template>
-    <main_title title="My Flights" />
-    <flights/>
-    <navbar/>
+    <div>
+      <main_title title="My Flights" />
+      <flights />
+      <navbar />
+    </div>
 </template>

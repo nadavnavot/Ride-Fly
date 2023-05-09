@@ -24,8 +24,8 @@ data() {
 <div>
   <main_title  title="Home" />
   <card :items="cards" />
+  <navbar/>
 </div>
-<navbar/>
   <!-- <img src="../assets/background.png"> -->
 
 </template>

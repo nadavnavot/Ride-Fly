@@ -21,10 +21,10 @@ data() {
 }
 </script>
 <template>
+  <div>
     <main_title title="My Rides" />
-    <card :items="cards" />
-    <navbar/> 
-``
-
+    <card items="cards" />
+    <navbar/>
+    </div>
 </template>
 

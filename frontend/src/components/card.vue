@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div @click="onClick" v-for="(cards, index) in items" :key="index" 
   class="card">
   <div class="wrapper">
@@ -19,6 +20,7 @@
   <div class="wrapper">
   <p class="card-text">{{ cards.driver }} &nbsp; {{ cards.rate }}</p>
   <p class="card-text">{{ cards.price }}<rate/></p></div>
+  </div>
   </div>
 </template>
 
