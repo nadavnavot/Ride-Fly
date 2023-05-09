@@ -70,6 +70,7 @@ export default {
 			box-sizing: border-box;
 		}
 		button {
+			color:#F1C933;
 			width: 75px;
 			height: 35px;
 			box-sizing: border-box;

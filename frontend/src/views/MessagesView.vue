@@ -71,8 +71,9 @@ export default {
 
 <style lang="scss">
 body {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	color: #2C3E50;
+	font-family: Bebas Neue;
+    font-weight: normal;
+    color: #166BC8;
 	margin: 0;
 	padding: 0;
 }
