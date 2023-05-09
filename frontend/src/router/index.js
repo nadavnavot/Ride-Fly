@@ -16,8 +16,8 @@ const router = createRouter({
       component: () => import('../views/MyRidesView.vue')
     },
     {
-      path: '/Flights',
-      name: 'Flights',
+      path: '/FlightsView',
+      name: 'FlightsView',
       component: () => import('../views/FlightsView.vue')
     },
     {
