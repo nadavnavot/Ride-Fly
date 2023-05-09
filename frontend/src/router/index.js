@@ -26,7 +26,7 @@ const router = createRouter({
       component: () => import('../views/ChatroomView.vue')
     },
     {
-      path: '/overview',
+      path: '/Overview',
       name: 'Overview',
       component: () => import('../views/RideOverview.vue')
     },
