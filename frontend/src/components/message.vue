@@ -14,6 +14,8 @@
 <style scoped>
 /* Chat containers */
 .container {
+  font-family: Bebas Neue;
+  font-weight: normal;
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
@@ -39,8 +41,8 @@
   float: left;
   max-width: 60px;
   width: 100%;
-  margin-right: 20px;
   border-radius: 50%;
+  margin: 10px;
 }
 
 /* Style the right image */

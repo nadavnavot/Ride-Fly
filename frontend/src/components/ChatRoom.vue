@@ -51,12 +51,16 @@ export default {
 			padding: 10px;
 			&:last-of-type {
 				border-bottom: none;
+				border-color: #166BC8;
 			}
 			.username {
 				width: 100px;
 				margin-right: 15px;
 			}
 			.message-text {
+				font-family: Bebas Neue;
+    			font-weight: normal;
+				color: black;
 				flex: 1;
 			}
 		}
@@ -70,6 +74,10 @@ export default {
 			box-sizing: border-box;
 		}
 		button {
+			font-family: Bebas Neue;
+    		font-weight: normal;
+			background-color:#F1C933;
+			color:black;
 			width: 75px;
 			height: 35px;
 			box-sizing: border-box;

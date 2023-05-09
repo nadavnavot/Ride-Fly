@@ -53,6 +53,7 @@ export default {
       <p class="card-text">{{ price }} €</p>
     </div>
   </div>
+  </div>
 </template>
 
 
