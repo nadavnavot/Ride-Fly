@@ -5,7 +5,9 @@ import navbar from '../components/navbar.vue';
 
 export default {
   components: {
-main_title, card, navbar
+  main_title, 
+  card, 
+  navbar
 },
 data() {
     return {
@@ -20,13 +22,12 @@ data() {
 
 <template>
 <div>
-    <main_title  title="Home" />
-   <card :items="cards" /> 
-  </div>
-  <navbar/>
-  
-
+  <main_title  title="Home" />
+  <card :items="cards" />
+</div>
+<navbar/>
   <!-- <img src="../assets/background.png"> -->
+
 </template>
 
 <style>

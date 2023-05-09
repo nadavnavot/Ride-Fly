@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="upcoming-flights">
-  <h1>Upcoming flights</h1>
+  <div class="upcoming-rides">
+  <h1>Upcoming Rides</h1>
    <div class="card">
     <p>Destination</p>
     <span class="date-left">25.1</span>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="past-flights">
-  <h1>Past flights</h1>
+  <h1>Past Rides</h1>
    <div class="card" >
     <p>Destination</p>
     <span class="date-left">25.1</span>

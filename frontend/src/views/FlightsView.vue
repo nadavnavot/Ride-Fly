@@ -6,7 +6,7 @@ import navbar from '../components/navbar.vue';
 export default {
   components: {
     main_title,
-    flights
+    flights,
     navbar
 }  
 }
