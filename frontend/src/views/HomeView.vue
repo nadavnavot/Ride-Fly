@@ -4,33 +4,25 @@ import card from '../components/card.vue';
 
 export default {
   components: {
-main_title, card
-},
-data() {
-    return {
-      cards: [
-        { departure: 'San Vincente',departure_time: '6:25' , destination: 'Seville airport',destination_time: '7:00' , driver: 'John', rate:'4.2', price:'5' },
-        { departure: 'Departure',departure_time: '6:25' , destination: 'Arrival', destination_time: '7:00' ,driver: 'Josh', rate:'3.7', price:'7' },
-        { departure: 'Departure',departure_time: '6:25' , destination: 'Arrival', destination_time: '7:00' ,driver: 'Joe', rate:'4.5', price:'9' }
-      ]
-    }}
-}
+    main_title, card
+  }
+};
 </script>
 
 <template>
-<div>
-    <main_title  title="Home" />
-   <card :items="cards" /> 
+  <div>
+    <main_title title="Home" />
+    <card :items="cards" />
   </div>
-  
+
 
   <!-- <img src="../assets/background.png"> -->
 </template>
 
-<style>
-img{
-width:100%;
-margin-top:80px;
-margin-left:-10px ;
+<!-- <style>
+img {
+  width: 100%;
+  margin-top: 80px;
+  margin-left: -10px;
 }
-</style>
+</style> -->

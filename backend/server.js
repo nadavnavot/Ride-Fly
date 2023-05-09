@@ -1,9 +1,22 @@
-// Set up a simple chat application using Express, Socket.io, and Mongoose, a MongoDB object modeling tool. 
-
-// Set up the required modules (Express, Socket.io, and Mongoose). 
+// import api from "./routes/api.js";
+const api = require('./routes/api.js');
+const cors = require('cors');
 
 // The app constant creates a new Express application instance.
-const app = require("express")();
+const express = require("express");
+const app = express();
+app.use(cors())
+
+// JSON
+app.use(express.json())
+
+// Load Routes
+app.use("/api", api)
+
+
+
+
+
 // The http constant creates an HTTP server instance that wraps the app instance.
 const http = require("http").Server(app);
 //The io constant creates a new Socket.io instance, passing the http server as an argument.
@@ -25,6 +38,9 @@ let messages = [];
 // Connects the application to a MongoDB database using the Mongoose library.
 mongoose.connect("mongodb+srv://Adinda:In1992diaadinda@cluster0.gf4ehvm.mongodb.net/ride_fly")
 
+
+//** Chat Model*//
+
 // Creates a Mongoose schema for a chat message, which contains a username and a msg.
 const ChatSchema = mongoose.Schema({
   username: String,
@@ -41,6 +57,7 @@ const ChatModel = mongoose.model("chat", ChatSchema);
 // });
 
 // messages = ChatModel.find();
+
 
 io.on("connection", client => {
   client.emit('loggedIn', {
@@ -79,6 +96,7 @@ io.on("connection", client => {
     
         io.emit('msg', result); */
   });
+
 
   // Disconnect
   client.on("disconnect", () => {
