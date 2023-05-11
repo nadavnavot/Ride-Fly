@@ -1,17 +1,11 @@
 <script>
 import main_title from '../components/main_title.vue';
-<<<<<<< HEAD
-=======
 import card from '../components/card.vue';
 import navbar from '../components/navbar.vue';
->>>>>>> 77261373f63dbad1330ea5cecfa08ac1172ecd54
 
 
 export default {
   components: {
-<<<<<<< HEAD
-    main_title}}
-=======
     main_title, 
     card, 
     navbar
@@ -25,17 +19,12 @@ data() {
       // ]
     }}
 }
->>>>>>> 77261373f63dbad1330ea5cecfa08ac1172ecd54
 </script>
 <template>
   <div>
     <main_title title="My Rides" />
-<<<<<<< HEAD
-
-=======
     <card items="cards" />
     <navbar/>
     </div>
->>>>>>> 77261373f63dbad1330ea5cecfa08ac1172ecd54
 </template>
 
