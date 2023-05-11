@@ -1,13 +1,13 @@
 <script>
 import main_title from '../components/main_title.vue';
-import card from '../components/card.vue';
+import rides from '../components/rides.vue';
 import navbar from '../components/navbar.vue';
 
 
 export default {
   components: {
     main_title, 
-    card, 
+    rides,
     navbar
 },
 data() {
