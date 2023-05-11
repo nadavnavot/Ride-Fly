@@ -29,6 +29,7 @@ export default {
 </script>
 
 <template>
+  <div>
   <div @click="onClick" class="card"
     v-for="({ id, departure_location, departure_time, destination_location, destination_time, driver, driver_rating, price }) in ridesData"
     :key="id">
@@ -51,7 +52,7 @@ export default {
     <div class="wrapper">
       <p class="card-text">{{ driver }} &nbsp; {{ driver_rating }} &nbsp;<rate /></p>
       <p class="card-text">{{ price }} €</p>
-    </div>
+    </div></div>
   </div>
 </template>
 

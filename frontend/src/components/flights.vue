@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <div>
   <div class="upcoming-flights">
   <h1>Upcoming flights</h1>
    <div class="card">
@@ -19,6 +20,7 @@
     <span class="date-left">25.1</span>
     <span class="time-right">6:28</span>
   </div>
+</div>
 </div>
   </template>
 

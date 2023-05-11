@@ -12,6 +12,7 @@ import navbar from '../components/navbar.vue';
 </script>
 
 <template>
+  <div>
   <main_title title="Chatroom"></main_title>
   <router-link to="/MessagesView/1">
  <message></message></router-link>
@@ -24,6 +25,7 @@ import navbar from '../components/navbar.vue';
 </svg>
 </router-link>
 <navbar/>
+</div>
 </template>
 
 <style>
