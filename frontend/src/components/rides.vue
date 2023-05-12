@@ -26,7 +26,7 @@
 
 <style scoped>
 .card {
-  background-image: url('');
+  background-image: url('frontend/img/Screen Shot 2022-11-22 at 14.50.05.png');
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 40%;

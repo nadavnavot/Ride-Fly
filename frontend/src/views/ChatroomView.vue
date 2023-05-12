@@ -14,9 +14,9 @@ import navbar from '../components/navbar.vue';
 <template>
   <div>
   <main_title title="Chatroom"></main_title>
-  <router-link to="/MessagesView/1">
+  <router-link to="/Messages">
  <message></message></router-link>
-  <router-link to="/MessagesView/1">
+  <router-link to="/Messages">
     <svg id="Chat" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
   <circle id="Ellipse_2" data-name="Ellipse 2" cx="26" cy="26" r="26" fill="#f1c933"/>
   <g id="image" transform="translate(-11.794 481.348)">

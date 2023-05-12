@@ -23,7 +23,7 @@ data() {
 <template>
   <div>
     <main_title title="My Rides" />
-    <card items="cards" />
+    <rides/>
     <navbar/>
     </div>
 </template>
