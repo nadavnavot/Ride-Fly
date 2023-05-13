@@ -20,11 +20,29 @@ data() {
     }}
 }
 </script>
+
 <template>
-  <div>
+<div class="header">
+  <div class="header-title">
     <main_title title="My Rides" />
+  </div>
+    <div class="header-icon">
+      <img src="/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/icons/Add.svg" alt="Icon" />
+    </div>
+  </div>
     <rides/>
     <navbar/>
-    </div>
 </template>
 
+<style scoped>
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header-icon {
+  margin-left: auto;
+}
+</style>
