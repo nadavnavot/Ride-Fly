@@ -18,9 +18,12 @@
   font-weight: normal;
   border: 2px solid #dedede;
   background-color: #f1f1f1;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px;
   margin: 10px 0;
+  margin-top: 35px;
+  width: 284;
+  height: 67;
 }
 
 /* Darker chat container */

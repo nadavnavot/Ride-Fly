@@ -4,37 +4,98 @@
 
 <template>
   <div>
-  <div class="upcoming-flights">
-  <h1>Upcoming flights</h1>
-   <div class="card">
-    <p>Destination</p>
-    <span class="date-left">25.1</span>
-    <span class="time-right">6:28</span>
-  </div>
-</div>
+    <div class="subtitle">Upcoming flights</div>
+      <div class="card high-opacity">
+        <div class="card-content">
+          <div class="card-header">
+            Location-Destination <!-- {{ location }} - {{ destination }} --></div>
 
-<div class="past-flights">
-  <h1>Past flights</h1>
-   <div class="card" >
-    <p>Destination</p>
-    <span class="date-left">25.1</span>
-    <span class="time-right">6:28</span>
+            <div class="list">
+              <div class="list-item">25.1<!--{{ date }}--></div>
+              <div class="list-item">6:28<!--{{ time }}--></div>
+            </div>
+      </div>
+  </div>
+
+  <div>
+    <div class="subtitle">Past flights</div>
+      <div class="card low-opacity">
+        <div class="card-content">
+          <div class="card-header">
+            Location-Destination <!-- {{ location }} - {{ destination }} --></div>
+            <div class="list">
+              <div class="list-item">25.1<!--{{ date }}--></div>
+              <div class="list-item">6:28<!--{{ time }}--></div>
+            </div>
+      </div>
+  </div>
+  <div class="banner medium-opacity">
+    <!-- content for the banner goes here -->
   </div>
 </div>
 </div>
   </template>
 
 <style scoped>
+.subtitle {
+  font-family: Bebas Neue;
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 30px;
+}
 .card {
-  background-image: url('');
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
+  background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/123d277a-city-7964-164a8b5c3d0.svg');
+  background-size: cover;
+  background-position: center;
+  height: 84px;
+  width: 112px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 10px;
 }
 
-.time-right {
-  float: right;
-  color: #aaa;
-} 
+.high-opacity {
+  opacity: 0.75;
+}
+
+.medium-opacity {
+  opacity: 0.50;
+}
+
+.low-opacity {
+  opacity: 0.40;
+}
+
+.card-content {
+  font-family: Bebas Neue;
+  font-weight: normal;
+  font-size: 16px;
+  color:black;
+  padding: 20px;
+  text-align: center;
+}
+.card-header {
+  margin: auto;
+}
+.list {
+  display: flex;
+  margin: auto;
+}
+.list-item {
+  flex: 1;
+}
+
+.banner {
+  background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/Screen Shot 2022-11-22 at 14.50.05.svg');
+  height: 110px;
+  width: 100%;  
+  background-size: cover;
+  background-position: center;
+}
+
 </style>

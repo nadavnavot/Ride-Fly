@@ -11,10 +11,29 @@ export default {
 }  
 }
 </script>
+
 <template>
-    <div>
-      <main_title title="My Flights" />
-      <flights />
-      <navbar />
+<div class="header">
+  <div class="header-title">
+    <main_title title="Flights" />
+  </div>
+    <div class="header-icon">
+      <img src="/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/icons/Add.svg" alt="Icon" />
     </div>
+  </div>
+    <flights/>
+    <navbar/>
 </template>
+
+<style scoped>
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header-icon {
+  margin-left: auto;
+}
+</style>
