@@ -13,6 +13,7 @@ export default {
 </script>
 
 <template>
+  <div>
 <div class="header">
   <div class="header-title">
     <main_title title="Flights" />
@@ -23,6 +24,7 @@ export default {
   </div>
     <flights/>
     <navbar/>
+    </div>
 </template>
 
 <style scoped>
