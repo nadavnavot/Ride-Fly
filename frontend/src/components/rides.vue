@@ -44,8 +44,8 @@
   margin-top: 30px;
 }
 .card {
-  height: 84px;
-  width: 112px;
+  height: 100px;
+  width: 150px;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   overflow: hidden;

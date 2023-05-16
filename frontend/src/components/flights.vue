@@ -47,8 +47,8 @@
   background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/123d277a-city-7964-164a8b5c3d0.svg');
   background-size: cover;
   background-position: center;
-  height: 84px;
-  width: 112px;
+  height: 100px;
+  width: 150px;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   overflow: hidden;

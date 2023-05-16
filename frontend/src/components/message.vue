@@ -22,8 +22,8 @@
   padding: 10px;
   margin: 10px 0;
   margin-top: 35px;
-  width: 284;
-  height: 67;
+  width: 100%;
+  height: 100px;
 }
 
 /* Darker chat container */
