@@ -1,7 +1,3 @@
-<script>
-
-</script>
-
 <template>
   <div>
     <div class="subtitle">Upcoming Rides</div>
