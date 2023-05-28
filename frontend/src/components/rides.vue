@@ -1,11 +1,7 @@
-<script>
-
-</script>
-
 <template>
   <div>
-    <div class="subtitle">Upcoming flights</div>
-      <div class="card high-opacity">
+    <div class="subtitle">Upcoming Rides</div>
+      <div class="card blue">
         <div class="card-content">
           <div class="card-header">
             Location-Destination <!-- {{ location }} - {{ destination }} --></div>
@@ -18,8 +14,8 @@
   </div>
 
   <div>
-    <div class="subtitle">Past flights</div>
-      <div class="card low-opacity">
+    <div class="subtitle">Past Rides</div>
+      <div class="card grey">
         <div class="card-content">
           <div class="card-header">
             Location-Destination <!-- {{ location }} - {{ destination }} --></div>
@@ -44,9 +40,6 @@
   margin-top: 30px;
 }
 .card {
-  background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/123d277a-city-7964-164a8b5c3d0.svg');
-  background-size: cover;
-  background-position: center;
   height: 100px;
   width: 150px;
   border-radius: 12px;
@@ -71,6 +64,17 @@
   opacity: 0.40;
 }
 
+.blue {
+  background-color: rgb(22, 107, 200);
+}
+
+.yellow {
+  background-color: rgb(241, 201, 51);
+}
+
+.grey {
+  background-color: rgb(174, 179, 189);
+}
 .card-content {
   font-family: Bebas Neue;
   font-weight: normal;
