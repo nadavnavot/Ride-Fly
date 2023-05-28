@@ -1,23 +1,62 @@
+<template>
+  <div>
+    <arrow />
+    <main_title style="text-align: center;" title="Ride Overview" />
+    <Map :departureCoordinates="departureCoordinates" :destinationCoordinates="destinationCoordinates" />
+    <h1>{{ $route.params.id }}</h1>
+    <div v-if="error">{{ error }}</div>
+    <div v-if="rideData">
+      <p>Departure Time: {{ rideData.departure_time }}</p>
+      <p>Destination Time: {{ rideData.destination_time }}</p>
+      <p>Driver: {{ rideData.driver }}</p>
+      <p>Driver Rating: {{ rideData.driver_rating }}</p>
+      <p>Price: {{ rideData.price }} €</p>
+    </div>
+    <div v-if="rideData">
+      <payment_button :rideData="rideData" />
+    </div>
+  </div>
+</template>
 
 <script>
 import main_title from '../components/main_title.vue';
 import payment_button from '../components/payment_button.vue';
+import arrow from '../components/arrow_back.vue';
+import Map from '../components/Map.vue';
+import { getRideById } from "../composables/ridesApi.js";
 
 export default {
   components: {
     main_title,
-    payment_button
-}  
-}
+    payment_button,
+    arrow,
+    Map
+  },
+  data() {
+    return {
+      rideData: null,
+      departureCoordinates: null,
+      destinationCoordinates: null,
+      error: null
+    };
+  },
+  async created() {
+    const id = this.$route.params.id;
+    const { rideData, error } = await getRideById(id);
 
+    if (error) {
+      console.error('Failed to fetch ride data:', error);
+    } else {
+      this.rideData = rideData;
+      this.departureCoordinates = {
+        lat: parseFloat(rideData.departure.lat),
+        lng: parseFloat(rideData.departure.long)
+      };
+      this.destinationCoordinates = {
+        lat: parseFloat(rideData.destination.lat),
+        lng: parseFloat(rideData.destination.long)
+      };
+    }
+  }
+};
 </script>
-<template>
-  <div>
-    <main_title title="Ride Overview"/>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297735.4853243169!2d-5.900818214996545!3d37.38613608828828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1114be6291%3A0x34f018621cfe5648!2sS%C3%A9ville%2C%20Espagne!5e0!3m2!1sfr!2sbe!4v1681659201222!5m2!1sfr!2sbe" width="100%" height="350" style="margin-top: 80px;border-radius:9px;border: none;text-align: center;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <payment_button/>
-</div>
-</template>
- 
-
-

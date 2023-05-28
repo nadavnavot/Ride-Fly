@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Success from '../views/Success.vue'
+import HomeView from '../views/HomeView.vue';
+import Success from '../views/Success.vue';
+
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,28 +24,24 @@ const router = createRouter({
       component: () => import('../views/FlightsView.vue')
     },
     {
-<<<<<<< HEAD
       path: '/ChatroomView',
       name: 'ChatroomView',
-=======
-      path: '/Chat',
-      name: 'Chat',
->>>>>>> 77261373f63dbad1330ea5cecfa08ac1172ecd54
       component: () => import('../views/ChatroomView.vue')
     },
     {
-      path: '/overview',
-      name: 'Overview',
-      component: () => import('../views/RideOverview.vue')
+      path: '/Overview/:id',
+    name: 'Overview',
+      component: () => import('../views/RideOverview.vue'),
+      props: true
     },
 
     {
       path: '/Success',
       name: 'Success',
       component: () => import('../views/Success.vue')
-    },
+ },
     {
-      path: '/Messages/:id',
+      path: '/Messages',
       name: 'Messages',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this routegit 

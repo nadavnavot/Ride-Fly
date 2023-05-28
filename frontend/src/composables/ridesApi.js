@@ -1,27 +1,106 @@
-import { ref } from 'vue'
-import axios from 'axios'
+import axios from "axios";
+import { ref } from "vue";
 
-export default function useRides() {
-  const url = "http://localhost:3000/api/rides"
-  const ridesData = ref([])
-  const error = ref(null)
-  // Get All Rides Data
-  const getAllRides = async () => {
-    ridesData.value = []
-    error.value = null
-    try {
-      const res = await axios(url)
-      // console.log(res.data)
-      ridesData.value = res.data
-    } catch (err) {
-      // console.log(err)
-      error.value = err
-    }
-  }
+// Function to get all the rides in the database (works)
+async function getAllRides() {
+  const url = "http://localhost:3000/api/rides";
+  const ridesData = ref([]);
+  const error = ref(null);
 
-  return {
-    ridesData,
-    error,
-    getAllRides
+  ridesData.value = [];
+  error.value = null;
+
+  try {
+    const response = await axios.get(url);
+    ridesData.value = response.data;
+    return {
+      ridesData,
+      error,
+    };
+  } catch (err) {
+    error.value = err;
+    return {
+      ridesData,
+      error,
+    };
   }
 }
+
+//Function to get a spesific ride by its ID (detail page) (works)
+async function getRideById(id) {
+  const url = `http://localhost:3000/api/rides/${id}`;
+  const rideData = ref(null);
+  const error = ref(null);
+
+  try {
+    const response = await axios.get(url);
+    if (response.data) {
+      rideData.value = response.data;
+      return {
+        rideData: rideData.value,
+        error: null,
+      };
+    } else {
+      return {
+        rideData: null,
+        error: "Ride not found",
+      };
+    }
+  } catch (err) {
+    error.value = err.response ? err.response.data : err.message;
+    return {
+      rideData: null,
+      error: error.value,
+    };
+  }
+}
+
+// Function to update the booked field in the database after successful payment (Doesn't work yet)
+async function updateRide(id) {
+  try {
+    const response = await axios.put(`http://localhost:3000/api/rides/${id}`, {
+      booked: true,
+      booked_time: new Date()
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error updating ride:', error);
+    throw error;
+  }
+}
+
+
+// Function to get fetch booked rides (Works!)
+async function getBookedRides() {
+  const url = "http://localhost:3000/api/rides";
+  const bookedRides = ref([]);
+  const error = ref(null);
+
+  bookedRides.value = [];
+  error.value = null;
+
+  try {
+    const response = await axios.get(url);
+    bookedRides.value = response.data.filter(ride => ride.booked === true);
+    return {
+      bookedRides,
+      error,
+    };
+  } catch (err) {
+    error.value = err;
+    return {
+      bookedRides,
+      error,
+    };
+  }
+}
+
+
+
+export {
+  getAllRides,
+  getRideById,
+  updateRide,
+  getBookedRides
+};
+

@@ -1,10 +1,9 @@
 const express = require('express');
-
-const RidesController = require('../controllers/ridesController.js');
-
+const RidesController = require('../controllers/ridesController');
 const router = express.Router();
 
-router.get('/rides', RidesController.getAllDoc);
+router.get('/rides', RidesController.getAllRides);
+router.get('/rides/:id', RidesController.getRideById);
+router.put('/rides/:id', RidesController.updateRide);
 
-// export default router
 module.exports = router;
