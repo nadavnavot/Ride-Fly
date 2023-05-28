@@ -24,7 +24,6 @@ const router = createRouter({
       component: () => import('../views/FlightsView.vue')
     },
     {
-<<<<<<< HEAD
       path: '/ChatroomView',
       name: 'ChatroomView',
       component: () => import('../views/ChatroomView.vue')
@@ -34,16 +33,6 @@ const router = createRouter({
     name: 'Overview',
       component: () => import('../views/RideOverview.vue'),
       props: true
-=======
-      path: '/Chat',
-      name: 'Chat',
-      component: () => import('../views/ChatroomView.vue')
-    },
-    {
-      path: '/Overview',
-      name: 'Overview',
-      component: () => import('../views/RideOverview.vue')
->>>>>>> fa842373eb7cc45b391ee573fedc388837450b26
     },
 
     {
