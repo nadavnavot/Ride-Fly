@@ -13,6 +13,7 @@
 <script>
 import { ref } from 'vue';
 import { StripeCheckout } from '@vue-stripe/vue-stripe';
+import {updateRide} from '../composables/ridesApi';
 
 export default {
   name: 'payment_button',
@@ -43,7 +44,7 @@ export default {
         // When payment is succeeded
         const id = this.rideData._id;
         try {
-          await this.updateRide(id); 
+          await updateRide(id); 
           this.$router.push({ path: '/Success' });
         } catch (error) {
           console.error('Failed to update ride:', error);
