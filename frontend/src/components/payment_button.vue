@@ -13,7 +13,6 @@
 <script>
 import { ref } from 'vue';
 import { StripeCheckout } from '@vue-stripe/vue-stripe';
-import {updateRide} from '../composables/ridesApi';
 
 export default {
   name: 'payment_button',
@@ -36,29 +35,21 @@ export default {
   },
   methods: {
     async submit() {
-  this.$refs.checkoutRef.redirectToCheckout()
-    .then(async (result) => {
-      if (result.error) {
-        console.error('Payment error:', result.error);
-      } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-        // When payment is succeeded
-        const id = this.rideData._id;
-        try {
-          await updateRide(id); 
-          this.$router.push({ path: '/Success' });
-        } catch (error) {
-          console.error('Failed to update ride:', error);
-          this.error = 'Failed to update ride.';
-        }
-      }
-    })
-    .catch(error => {
-      console.error('Failed to redirect to checkout:', error);
-      this.error = 'Failed to redirect to checkout.';
-    });
-},
-
-}
+      this.$refs.checkoutRef.redirectToCheckout()
+        .then(async (result) => {
+          if (result.error) {
+            console.error('Payment error:', result.error);
+          } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+            // When payment succeeded
+            this.$router.push({ path: `/Success/${this.id}` }); // trying to pass the ID
+          }
+        })
+        .catch(error => {
+          console.error('Failed to redirect to checkout:', error);
+          this.error = 'Failed to redirect to checkout.';
+        });
+    },
+  },
 };
 </script>
 

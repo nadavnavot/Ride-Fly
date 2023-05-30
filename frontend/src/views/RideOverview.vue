@@ -13,7 +13,7 @@
       <p>Price: {{ rideData.price }} €</p>
     </div>
     <div v-if="rideData">
-      <payment_button :rideData="rideData" />
+<payment_button :id="$route.params.id" />
     </div>
   </div>
 </template>

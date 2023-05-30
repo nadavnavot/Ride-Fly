@@ -66,7 +66,7 @@ export default {
         const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${latitude},${longitude}`,
-            key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ',
+            key: 'API_KEY',
           },
         });
 
