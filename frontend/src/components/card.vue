@@ -66,13 +66,12 @@ export default {
         const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${latitude},${longitude}`,
-            key: 'API_KEY',
+            key: 'API_Key ',
           },
         });
 
         if (response.data.results.length > 0) {
           const address = response.data.results[0].formatted_address;
-          console.log('Address:', address);
           return address;
         } else {
           throw new Error('No results found');

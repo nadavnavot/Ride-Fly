@@ -19,11 +19,9 @@ export default {
     console.log('the $route.params.id is', id);
      updateRide(id)
       .then(() => {
-        // setTimeout(() => this.$router.push({ path: '/MyRides' }), 5000);
+        setTimeout(() => this.$router.push({ path: '/MyRides' }), 5000);
       })
       .catch(error => {
-        console.error('Failed to update ride:', error);
-        // Handle error here
       });
   },
 };

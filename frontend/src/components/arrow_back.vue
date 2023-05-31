@@ -8,7 +8,7 @@ export default{
     name:'arrow',
 methods: {
   goBack() {
-      this.$router.push({ path: '/' });
+    this.$router.go(-1);
   }
 }
 

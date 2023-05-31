@@ -13,7 +13,6 @@
 <script>
 import { ref } from 'vue';
 import { StripeCheckout } from '@vue-stripe/vue-stripe';
-
 export default {
   name: 'payment_button',
   components: {
@@ -29,7 +28,7 @@ export default {
           quantity: 1
         }
       ],
-      successURL: 'http://localhost:5173/Success',
+      successURL: `http://localhost:5173/Success/${this.$route.params.id}`,
       error: ref(null)
     };
   },
@@ -41,11 +40,10 @@ export default {
             console.error('Payment error:', result.error);
           } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
             // When payment succeeded
-            this.$router.push({ path: `/Success/${this.id}` }); // trying to pass the ID
+            this.$router.push({ name: 'Success', params: { id: id } });
           }
         })
         .catch(error => {
-          console.error('Failed to redirect to checkout:', error);
           this.error = 'Failed to redirect to checkout.';
         });
     },

@@ -55,7 +55,7 @@ async function getRideById(id) {
   }
 }
 
-// Function to update the booked field in the database after successful payment (Doesn't work yet)
+// Function to update the booked field in the database after successful payment (Works)
 async function updateRide(id) {
   try {
     const response = await axios.put(`http://localhost:3000/api/rides/${id}`, {
@@ -64,13 +64,12 @@ async function updateRide(id) {
     });
     return response.data;
   } catch (error) {
-    console.error('Error updating ride:', error);
     throw error;
   }
 }
 
 
-// Function to get fetch booked rides (Works!)
+// Function to fetch the booked rides (Works!)
 async function getBookedRides() {
   const url = "http://localhost:3000/api/rides";
   const bookedRides = ref([]);
