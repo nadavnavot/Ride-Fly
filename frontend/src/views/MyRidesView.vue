@@ -2,27 +2,36 @@
   <div>
     <main_title title="My Rides" />
     <div v-if="bookedRides">
-      <h2>Booked Rides:</h2>
-      <div @click="onClick(ride._id)" class="card" v-for="ride in bookedRides" :key="ride._id">
-
+      <h2>Upcoming Rides</h2>
+      <div @click="onClick(ride._id)" class="card bg-blue" v-for="ride in bookedRides" :key="ride._id">
         <div class="wrapper">
-          <p class="card-address">{{ departureAddresses[ride._id] }}</p>
           <p class="card-address">{{ destinationAddresses[ride._id] }}</p>
         </div>
-        
         <div class="wrapper">
-          <p class="card-time">{{ ride.departure_time }}</p>
-          <p class="card-time">{{ ride.destination_time }}</p>
+          <p class="card-time">{{ ride.departure_time }} &nbsp; {{ ride.destination_time }}&nbsp;</p>
         </div>
-
         <div class="wrapper">
-          <p class="card-text">{{ ride.driver }} &nbsp; {{ ride.driver_rating }} &nbsp;<rate /></p>
-          <p class="card-text">{{ ride.price }} €</p>
-        </div>
-
-      
+          <p class="card-text right-section">{{ ride.driver }} &nbsp;</p>
+          <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+        </div>      
       </div>
     </div>
+
+    <h2>Past Rides</h2>
+    <div class="card black bg-yellow">
+      <div class="wrapper">
+        <p class="card-address">Sevilla Airport</p>
+      </div>
+      <div class="wrapper">
+        <p class="card-time black">22:10  25/1</p>
+      </div>
+      <div class="wrapper"> 
+        <p class="card-text left-section blue">Done</p>
+        <p class="card-text right-section">Pedro</p>
+        <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+      </div>      
+    </div>
+    <banner></banner>
     <navbar />
   </div>
 </template>
@@ -33,6 +42,7 @@ import axios from 'axios';
 import main_title from '../components/main_title.vue';
 import Rate from '../components/rate.vue';
 import navbar from '../components/navbar.vue';
+import banner from '../components/banner.vue';
 import { getBookedRides } from "../composables/ridesApi.js";
 
 
@@ -40,6 +50,7 @@ export default {
   components: {
     main_title,
     navbar,
+    banner,
     Rate
   },
   data() {
@@ -76,7 +87,7 @@ export default {
       const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
           latlng: `${latitude},${longitude}`,
-          key: 'API_Key',
+          key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ',
         },
       });
 
@@ -108,22 +119,23 @@ export default {
 },
 };
 </script>
+
 <style>
 .card {
   cursor: pointer;
   width: 100%;
-  height: 130px;
+  height: 120px;
   padding: 10px;
-  font-family: avenir;
-  margin-top: 20px;
-  border: 1px black solid;
-  margin-bottom: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: 'Bebas Neue';
+  font-weight: bold;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .wrapper {
@@ -133,24 +145,72 @@ export default {
 }
 
 .card-title {
-  font-family: Bebas Neue;
-  font-weight: normal;
-  color: #166bc8;
-  margin-bottom: 20px;
-  margin-left: 50px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-time {
-  color: black;
+  color: white;
   font-family: 'Roboto';
   font-style: normal;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-text {
-  color: black;
   font-family: 'Roboto';
   font-style: normal;
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+.left-section {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.right-section {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.blue {
+  color: #166bc8;
+}
+
+.bg-blue {
+  background-color: #166bc8;
+}
+
+.darkblue {
+  color: #1B2B71;
+  font-weight: bold;
+}
+
+.yellow {
+  color: #f1c933;
+}
+
+.bg-yellow {
+  background-color: #f1c933;
+}
+
+.bg-yellow {
+  background-color: #AEB3BD;
+}
+
+.black {
+  color: black;
+} 
 </style>
+
+
+

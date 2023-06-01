@@ -8,7 +8,7 @@
     >
       <div class="wrapper">
         <h3 class="card-title departure black">{{ departureAddresses[ride._id] }}</h3>
-         <svg
+        <svg
           style="margin-top: 4px;"
           xmlns="http://www.w3.org/2000/svg"
           width="17.333"
@@ -19,7 +19,7 @@
             <path
               id="Path_67"
               data-name="Path 67"
-              d="M2.008,1.875C.93,2.908.038,3.782.027,3.818A.39.39,0,0,0,.5,4.336c.046-.021.761-.68,1.583-1.47l1.5-1.438L3.6,9.271c.018,8.393.007,7.882.176,8.02a.55.55,0,0,0,.423,0c.169-.138.159.374.176-8.02l.018-7.843,1.5,1.438c.821.79,1.537,1.452,1.586,1.47a.379.379,0,0,0,.494-.363c0-.12-.025-.169-.176-.328C7.564,3.405,4.028.014,3.993,0,3.979,0,3.087.839,2.008,1.875Z"
+              d="M2.008,1.875C.93,2.908,.038,3.782,.027,3.818A.39.39,0,0,0,.5,4.336c.046-.021.761-.68,1.583-1.47l1.5-1.438L3.6,9.271c.018,8.393.007,7.882.176,8.02a.55.55,0,0,0,.423,0c.169-.138.159.374.176-8.02l.018-7.843,1.5,1.438c.821.79,1.537,1.452,1.586,1.47a.379.379,0,0,0,.494-.363c0-.12-.025-.169-.176-.328C7.564,3.405,4.028.014,3.993,0,3.979,0,3.087.839,2.008,1.875Z"
             />
           </g>
         </svg>
@@ -30,17 +30,17 @@
         <p class="card-time margin-right">{{ ride.destination_time }}</p>
       </div>
       <div class="wrapper">
-    <div class="left-section">
-      <p class="card-text darkblue">{{ ride.driver }}</p>
-      <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
-      <p class="card-text">
-        <span class="black">{{ ride.driver_rating }}</span>
-        &nbsp;<rate />
-      </p>
+        <div class="left-section">
+          <p class="card-text darkblue">{{ ride.driver }}</p>
+          <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+          <p class="card-text">
+            <span class="black">{{ ride.driver_rating }}</span>
+            &nbsp;<rate />
+          </p>
+        </div>
+        <p class="card-text right-section">{{ ride.price }} €</p>
+      </div>
     </div>
-    <p class="card-text right-section">{{ ride.price }} €</p>
-  </div>
-  </div>
   </div>
 </template>
 
@@ -73,7 +73,7 @@ export default {
         const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${latitude},${longitude}`,
-            key: 'API_KEY',
+            key: 'YOUR_API_KEY',
           },
         });
 
@@ -89,20 +89,20 @@ export default {
       }
     },
     async fetchAddresses() {
-  for (const ride of this.ridesData) {
-    const departureAddress = await this.getAddressFromCoordinates(
-      ride.departure.lat,
-      ride.departure.long
-    );
-    this.departureAddresses[ride._id] = departureAddress;
+      for (const ride of this.ridesData) {
+        const departureAddress = await this.getAddressFromCoordinates(
+          ride.departure.lat,
+          ride.departure.long
+        );
+        this.departureAddresses[ride._id] = departureAddress;
 
-    const destinationAddress = await this.getAddressFromCoordinates(
-      ride.destination.lat,
-      ride.destination.long
-    );
-    this.destinationAddresses[ride._id] = destinationAddress;
-  }
-},
+        const destinationAddress = await this.getAddressFromCoordinates(
+          ride.destination.lat,
+          ride.destination.long
+        );
+        this.destinationAddresses[ride._id] = destinationAddress;
+      }
+    },
   },
   async mounted() {
     try {
@@ -118,7 +118,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   cursor: pointer;
   width: 100%;
@@ -183,7 +183,7 @@ export default {
 }
 
 .right-section {
-  margin-left:auto;
+  margin-left: auto;
   margin-right: 10px;
 }
 
@@ -202,7 +202,7 @@ export default {
 
 .black {
   color: black;
-} 
+}
 
 .margin-left {
   margin-left: 25px;
@@ -211,8 +211,4 @@ export default {
 .margin-right {
   margin-right: 25px;
 }
-
 </style>
-
-
-
