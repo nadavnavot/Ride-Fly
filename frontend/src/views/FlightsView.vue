@@ -2,12 +2,14 @@
 import main_title from '../components/main_title.vue';
 import flights from '../components/flights.vue';
 import navbar from '../components/navbar.vue';
+import banner from '../components/banner.vue';
 
 export default {
   components: {
     main_title,
     flights,
-    navbar
+    banner,
+    navbar,
 }  
 }
 </script>
@@ -19,10 +21,11 @@ export default {
     <main_title title="Flights" />
   </div>
     <div class="header-icon">
-      <img src="/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/icons/Add.svg" alt="Icon" />
+      <img src="" alt="Icon" />
     </div>
   </div>
     <flights/>
+    <banner></banner>    
     <navbar/>
     </div>
 </template>

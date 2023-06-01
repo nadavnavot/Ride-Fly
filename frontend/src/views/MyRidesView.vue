@@ -3,22 +3,24 @@
     <main_title title="My Rides" />
     <div v-if="bookedRides">
       <h2>Upcoming Rides</h2>
-      <div @click="onClick(ride._id)" class="card bg-blue" v-for="ride in bookedRides" :key="ride._id">
-        <div class="wrapper">
-          <p class="card-address">{{ destinationAddresses[ride._id] }}</p>
+      <div class="card-container">
+        <div @click="onClick(ride._id)" :class="getCardClass(index)" v-for="(ride, index) in bookedRides" :key="ride._id">
+          <div class="wrapper">
+            <p class="card-address">{{ destinationAddresses[ride._id] }}</p>
+          </div>
+          <div class="wrapper">
+            <p class="card-time">{{ ride.departure_time }} &nbsp; {{ ride.destination_time }}&nbsp;</p>
+          </div>
+          <div class="wrapper">
+            <p class="card-text right-section">{{ ride.driver }} &nbsp;</p>
+            <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+          </div>      
         </div>
-        <div class="wrapper">
-          <p class="card-time">{{ ride.departure_time }} &nbsp; {{ ride.destination_time }}&nbsp;</p>
-        </div>
-        <div class="wrapper">
-          <p class="card-text right-section">{{ ride.driver }} &nbsp;</p>
-          <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
-        </div>      
       </div>
     </div>
 
     <h2>Past Rides</h2>
-    <div class="card black bg-yellow">
+    <div class="card black bg-grey">
       <div class="wrapper">
         <p class="card-address">Sevilla Airport</p>
       </div>
@@ -62,68 +64,79 @@ export default {
     };
   },
   async created() {
-  try {
-    const { bookedRides, error } = await getBookedRides();
-    this.bookedRides = bookedRides;
-    this.error = error;
+    try {
+      const { bookedRides, error } = await getBookedRides();
+      this.bookedRides = bookedRides;
+      this.error = error;
 
-    this.fetchAddresses();
-  } catch (error) {
-    this.error = 'Failed to fetch booked rides';
-  }
-},
+      this.fetchAddresses();
+    } catch (error) {
+      this.error = 'Failed to fetch booked rides';
+    }
+  },
 
   methods: {
     onClick(id) {
-  if (id) {
-    this.$router.push({ name: 'BookedRide', params: { id: id } });
-  } else {
-    console.error('Invalid ride id');
-  }
-},
-
-  async getAddressFromCoordinates(latitude, longitude) {
-    try {
-      const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          latlng: `${latitude},${longitude}`,
-          key: 'API_KEY',
-        },
-      });
-
-      if (response.data.results.length > 0) {
-        const address = response.data.results[0].formatted_address;
-        return address;
+      if (id) {
+        this.$router.push({ name: 'BookedRide', params: { id: id } });
       } else {
-        throw new Error('No results found');
+        console.error('Invalid ride id');
       }
-    } catch (error) {
-      return 'Unknown address';
-    }
-  },
-  async fetchAddresses() {
-    for (const ride of this.bookedRides) {
-      const departureAddress = await this.getAddressFromCoordinates(
-        ride.departure.lat,
-        ride.departure.long
-      );
-      this.departureAddresses[ride._id] = departureAddress;
+    },
 
-      const destinationAddress = await this.getAddressFromCoordinates(
-        ride.destination.lat,
-        ride.destination.long
-      );
-      this.destinationAddresses[ride._id] = destinationAddress;
-    }
+    async getAddressFromCoordinates(latitude, longitude) {
+      try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            latlng: `${latitude},${longitude}`,
+            key: 'API_KEY',
+          },
+        });
+
+        if (response.data.results.length > 0) {
+          const address = response.data.results[0].formatted_address;
+          return address;
+        } else {
+          throw new Error('No results found');
+        }
+      } catch (error) {
+        return 'Unknown address';
+      }
+    },
+    
+    async fetchAddresses() {
+      for (const ride of this.bookedRides) {
+        const departureAddress = await this.getAddressFromCoordinates(
+          ride.departure.lat,
+          ride.departure.long
+        );
+        this.departureAddresses[ride._id] = departureAddress;
+
+        const destinationAddress = await this.getAddressFromCoordinates(
+          ride.destination.lat,
+          ride.destination.long
+        );
+        this.destinationAddresses[ride._id] = destinationAddress;
+      }
+    },
+    
+    getCardClass(index) {
+      return index % 2 === 0 ? 'card bg-blue' : 'card bg-yellow';
+    },
   },
-},
 };
 </script>
 
 <style>
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .card {
   cursor: pointer;
-  width: 100%;
+  width: 48%;
   height: 120px;
   padding: 10px;
   font-family: 'Bebas Neue';
@@ -203,7 +216,7 @@ export default {
   background-color: #f1c933;
 }
 
-.bg-yellow {
+.bg-grey {
   background-color: #AEB3BD;
 }
 
@@ -211,6 +224,3 @@ export default {
   color: black;
 } 
 </style>
-
-
-
