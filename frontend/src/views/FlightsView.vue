@@ -16,27 +16,9 @@ export default {
 
 <template>
   <div>
-<div class="header">
-  <div class="header-title">
     <main_title title="Flights" />
-  </div>
-    <div class="header-icon">
-      <img src="" alt="Icon" />
-    </div>
-  </div>
     <flights/>
-    <banner></banner>    
+    <banner></banner>
     <navbar/>
-    </div>
+  </div>
 </template>
-
-<style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-icon {
-  margin-left: auto;
-}
-</style>

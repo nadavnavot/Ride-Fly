@@ -1,5 +1,5 @@
 <template>
-     <div class="banner medium-opacity"></div>
+     <div class="banner"></div>
 </template>
 
 <style scoped>
