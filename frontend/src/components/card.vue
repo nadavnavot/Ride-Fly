@@ -7,7 +7,7 @@
       :key="ride._id"
     >
       <div class="wrapper">
-        <h3 class="card-title departure">{{ departureAddresses[ride._id] }}</h3>
+        <h3 class="card-title departure black">{{ departureAddresses[ride._id] }}</h3>
          <svg
           style="margin-top: 4px;"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,17 +23,24 @@
             />
           </g>
         </svg>
-        <h3 class="card-title destination">{{ destinationAddresses[ride._id] }}</h3>
+        <h3 class="card-title destination blue">{{ destinationAddresses[ride._id] }}</h3>
       </div>
       <div class="wrapper">
-        <p class="card-time">{{ ride.departure_time }}</p>
-        <p class="card-time">{{ ride.destination_time }}</p>
+        <p class="card-time margin-left">{{ ride.departure_time }}</p>
+        <p class="card-time margin-right">{{ ride.destination_time }}</p>
       </div>
       <div class="wrapper">
-        <p class="card-text">{{ ride.driver }} &nbsp; {{ ride.driver_rating }} &nbsp;<rate /></p>
-        <p class="card-text">{{ ride.price }} €</p>
-      </div>
+    <div class="left-section">
+      <p class="card-text darkblue">{{ ride.driver }}</p>
+      <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+      <p class="card-text">
+        <span class="black">{{ ride.driver_rating }}</span>
+        &nbsp;<rate />
+      </p>
     </div>
+    <p class="card-text right-section">{{ ride.price }} €</p>
+  </div>
+  </div>
   </div>
 </template>
 
@@ -66,7 +73,7 @@ export default {
         const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${latitude},${longitude}`,
-            key: 'API_Key ',
+            key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ',
           },
         });
 
@@ -115,18 +122,17 @@ export default {
 .card {
   cursor: pointer;
   width: 100%;
-  height: 130px;
+  height: 120px;
   padding: 10px;
-  font-family: avenir;
-  margin-top: 20px;
-  border: 1px black solid;
-  margin-bottom: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: Roboto;
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  margin-top: 40px;
-  margin-bottom: 40px;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .wrapper {
@@ -139,21 +145,74 @@ export default {
   font-family: Bebas Neue;
   font-weight: normal;
   color: #166bc8;
-  margin-bottom: 20px;
-  margin-left: 50px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-time {
   color: black;
   font-family: 'Roboto';
   font-style: normal;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-text {
-  color: black;
   font-family: 'Roboto';
   font-style: normal;
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.right-section {
+  margin-left:auto;
+  margin-right: 10px;
+}
+
+.blue {
+  color: #166bc8;
+}
+
+.darkblue {
+  color: #1B2B71;
+  font-weight: bold;
+}
+
+.yellow {
+  color: #f1c933;
+}
+
+.black {
+  color: black;
+} 
+
+.margin-left {
+  margin-left: 25px;
+}
+
+.margin-right {
+  margin-right: 25px;
+}
+
 </style>
+
+
+
