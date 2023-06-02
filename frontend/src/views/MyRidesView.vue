@@ -5,11 +5,18 @@
       <h2>Upcoming Rides</h2>
       <div class="card-container">
         <div @click="onClick(ride._id)" :class="getCardClass(index)" v-for="(ride, index) in bookedRides" :key="ride._id">
-          <div class="wrapper">
+          <div class="wrapper center">
             <p class="card-address">{{ destinationAddresses[ride._id] }}</p>
           </div>
           <div class="wrapper">
-            <p class="card-time">{{ ride.departure_time }} &nbsp; {{ ride.destination_time }}&nbsp;</p>
+            <div class="time-column">
+              <div class="time-label">Departure Time:</div>
+              <p class="card-time">{{ ride.departure_time }}</p>
+            </div>
+            <div class="time-column">
+              <p class="time-label">Arrival Time:</p>
+              <p class="card-time">{{ ride.destination_time }}</p>
+            </div>
           </div>
           <div class="wrapper">
             <p class="card-text right-section">{{ ride.driver }} &nbsp;</p>
@@ -20,24 +27,56 @@
     </div>
 
     <h2>Past Rides</h2>
-    <div class="card black bg-grey">
-      <div class="wrapper">
-        <p class="card-address">Sevilla Airport</p>
+    <div class="card-container">
+      <div class="card black bg-grey">
+        <div class="wrapper center">
+          <p class="card-address">Seville Airport</p>
+        </div>
+        <div class="wrapper center">
+          <div class="time-column">
+            <p class="time-label">Departure Time:</p>
+            <p class="card-time black">22:10</p>
+          </div>
+          <div class="time-column">
+            <p class="time-label">Arrival Time:</p>
+            <p class="card-time black">7:00</p>
+          </div>
+        </div>
+        <div class="wrapper"> 
+          <p class="card-text left-section blue">Done</p>
+          <p class="card-text right-section">Pedro</p>
+          <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+        </div>      
       </div>
-      <div class="wrapper">
-        <p class="card-time black">22:10  25/1</p>
-      </div>
-      <div class="wrapper"> 
-        <p class="card-text left-section blue">Done</p>
-        <p class="card-text right-section">Pedro</p>
-        <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
-      </div>      
     </div>
+
+    <div class="card-container">
+      <div class="card black bg-grey">
+        <div class="wrapper center">
+          <p class="card-address">Barcelona Airport</p>
+        </div>
+        <div class="wrapper center">
+          <div class="time-column">
+            <p class="time-label">Departure Time:</p>
+            <p class="card-time black">12:10</p>
+          </div>
+          <div class="time-column">
+            <p class="time-label">Arrival Time:</p>
+            <p class="card-time black">18:00</p>
+          </div>
+        </div>
+        <div class="wrapper"> 
+          <p class="card-text left-section blue">Done</p>
+          <p class="card-text right-section">Pedro</p>
+          <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
+        </div>      
+      </div>
+    </div>
+
     <banner></banner>
     <navbar />
   </div>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -46,7 +85,6 @@ import Rate from '../components/rate.vue';
 import navbar from '../components/navbar.vue';
 import banner from '../components/banner.vue';
 import { getBookedRides } from "../composables/ridesApi.js";
-
 
 export default {
   components: {
@@ -89,7 +127,7 @@ export default {
         const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${latitude},${longitude}`,
-            key: 'API_KEY',
+            key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ',
           },
         });
 
@@ -121,7 +159,7 @@ export default {
     },
     
     getCardClass(index) {
-      return index % 2 === 0 ? 'card bg-blue' : 'card bg-yellow';
+      return index % 2 === 0 ? 'card bg-blue white' : 'card bg-yellow black';
     },
   },
 };
@@ -136,7 +174,7 @@ export default {
 
 .card {
   cursor: pointer;
-  width: 48%;
+  width: 100%; /* width: 50% in XD file*/
   height: 120px;
   padding: 10px;
   font-family: 'Bebas Neue';
@@ -153,7 +191,7 @@ export default {
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
 }
 
@@ -165,8 +203,21 @@ export default {
   white-space: nowrap;
 }
 
+.time-column {
+  flex: 1;
+}
+
+.time-label {
+  font-family: 'Roboto';
+  font-style: normal;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0%;
+}
+
 .card-time {
-  color: white;
   font-family: 'Roboto';
   font-style: normal;
   margin-bottom: 10px;
@@ -223,4 +274,14 @@ export default {
 .black {
   color: black;
 } 
+
+.white {
+  color: white;
+} 
+
+.center {
+  display: flex;
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers items horizontally */
+}
 </style>
