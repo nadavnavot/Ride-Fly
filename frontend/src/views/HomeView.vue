@@ -21,3 +21,10 @@ export default {
   </div>
 <navbar/>
 </template>
+
+<style scoped>
+.date {
+  font-family: Roboto;
+  color: black;
+}
+</style>
