@@ -7,7 +7,7 @@
           <div class="card-header">Seville-Bologna</div>
           <div class="list">
             <div class="list-item">25.1</div>
-            <div class="list-item">6:28</div>
+            <div class="list-item">6:07</div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  width: calc(50% - 10px); /* Adjust the width to create appropriate spacing */
+  width: 100%; /* calc(50% - 10px); Adjust the width to create appropriate spacing */
   height: 120px;
   padding: 10px;
   font-family: 'Bebas Neue';
@@ -97,7 +97,7 @@
 .card-content {
   font-family: 'Bebas Neue';
   font-weight: normal;
-  font-size: 16px;
+  font-size: 18px;
   color: black;
   padding: 20px;
   text-align: center;
@@ -110,6 +110,7 @@
 .list {
   display: flex;
   margin: auto;
+  padding: 20px;
 }
 
 .list-item {

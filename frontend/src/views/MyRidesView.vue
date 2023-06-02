@@ -30,16 +30,16 @@
     <div class="card-container">
       <div class="card black bg-grey">
         <div class="wrapper center">
-          <p class="card-address">Seville Airport</p>
+          <p class="card-address">Charleroi Airport</p>
         </div>
         <div class="wrapper center">
           <div class="time-column">
             <p class="time-label">Departure Time:</p>
-            <p class="card-time black">22:10</p>
+            <p class="card-time black">23:10</p>
           </div>
           <div class="time-column">
             <p class="time-label">Arrival Time:</p>
-            <p class="card-time black">7:00</p>
+            <p class="card-time black">12:10</p>
           </div>
         </div>
         <div class="wrapper"> 
@@ -53,16 +53,16 @@
     <div class="card-container">
       <div class="card black bg-grey">
         <div class="wrapper center">
-          <p class="card-address">Barcelona Airport</p>
+          <p class="card-address">Zagreb Airport</p>
         </div>
         <div class="wrapper center">
           <div class="time-column">
             <p class="time-label">Departure Time:</p>
-            <p class="card-time black">12:10</p>
+            <p class="card-time black">18:30</p>
           </div>
           <div class="time-column">
             <p class="time-label">Arrival Time:</p>
-            <p class="card-time black">18:00</p>
+            <p class="card-time black">6:30</p>
           </div>
         </div>
         <div class="wrapper"> 
