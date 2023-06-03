@@ -2,41 +2,74 @@
   <div>
     <arrow />
     <main_title style="text-align: center;" title="Ride Overview" />
-    <Map :departureCoordinates="departureCoordinates" :destinationCoordinates="destinationCoordinates" />
-    <div class="container">
-    <div class="row">
-      <h1>{{ $route.params.id }}</h1>
-    </div>
-    <div class="row">
-      <div v-if="error">{{ error }}</div>
-    </div>
-    <div class="row" v-if="rideData">
-      <div>
-        <p>{{ rideData.departure_time }}</p>
-        <p>{{ rideData.destination_time }}</p>
-      </div>
-    </div>
-    <div class="row" v-if="rideData">
-      <div>
-        <p class="driver">{{ rideData.driver }}</p>
-        <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="Avatar">
-        <p>{{ rideData.driver_rating }}</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="15.4" height="14.69" viewBox="0 0 15.4 14.69">
-  <g id="Star" transform="translate(0)">
-    <path id="Path_68" data-name="Path 68" d="M9.419-511.945c-.048.036-.358.768-1.043,2.48-.533,1.335-.982,2.437-.994,2.449s-1.158.1-2.549.191-2.577.176-2.634.185a.409.409,0,0,0-.191.1.31.31,0,0,0-.021.407c.033.042.952.826,2.04,1.736l1.979,1.654-.63,2.51c-.349,1.381-.634,2.546-.634,2.592a.318.318,0,0,0,.324.328c.109,0-.012.073,2.419-1.457,1.152-.725,2.113-1.317,2.137-1.317s.988.592,2.137,1.317c2.434,1.53,2.31,1.457,2.419,1.457a.318.318,0,0,0,.324-.328c0-.046-.285-1.211-.634-2.592l-.63-2.51,1.967-1.645c1.082-.9,2-1.684,2.04-1.733a.321.321,0,0,0-.2-.522c-.058-.009-1.243-.094-2.634-.185s-2.54-.179-2.549-.191-.458-1.114-.994-2.449c-.691-1.721-.994-2.443-1.043-2.48a.345.345,0,0,0-.2-.055A.345.345,0,0,0,9.419-511.945Z" transform="translate(-1.921 512)" fill="#f1c933"/>
-  </g>
-</svg>
 
-        <p class="price">{{ rideData.price }} €</p>
+    <Map :departureCoordinates="departureCoordinates" :destinationCoordinates="destinationCoordinates" />
+
+    <div class="container font-bold">
+      <div class="row" v-if="error">
+        <div>{{ error }}</div>
       </div>
-      <div>
+
+      <div class="column" v-if="rideData">
+        <div class="row">
+          <p class="column">
+            <strong>Departure Time:</strong>{{ rideData.departure_time }}
+          </p>
+
+          <p class="column">
+            <strong>Destination Time:</strong>{{ rideData.destination_time }}
+          </p>
+        </div>
+
+
+        <div class="row" v-if="rideData">
+        <p class="date column">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13.818" height="14.407" viewBox="0 0 13.818 14.407">
+            <g id="image_4_" data-name="image (4)" transform="translate(0 0)">
+              <path id="Path_88" data-name="Path 88" d="M22.708-511.933a.831.831,0,0,0-.2.19c-.085.126-.088.138-.1.518l-.012.392-.969.009a6.514,6.514,0,0,0-1.06.047.658.658,0,0,0-.31.313c-.053.114-.056.343-.056,6.232,0,4.745.009,6.142.035,6.235a.617.617,0,0,0,.363.363c.176.053,12.846.053,13.021,0a.617.617,0,0,0,.363-.363c.026-.094.035-1.49.035-6.235,0-5.89,0-6.118-.056-6.232a.658.658,0,0,0-.31-.313,6.514,6.514,0,0,0-1.06-.047l-.969-.009-.012-.392c-.009-.381-.012-.392-.1-.518a.831.831,0,0,0-.2-.19c-.108-.061-.155-.067-.594-.067-.506,0-.577.015-.732.158s-.181.249-.181.647v.366H24.216v-.366c0-.4-.032-.515-.182-.647S23.809-512,23.3-512C22.863-512,22.816-511.994,22.708-511.933Zm.893,1.426v.878h-.585v-1.756H23.6Zm7.2,0v.878h-.585v-1.756H30.8Zm-8.4.679c0,.413.038.533.214.688.146.129.266.155.726.155.366,0,.407-.006.545-.073a.613.613,0,0,0,.231-.2c.082-.117.085-.135.094-.527l.012-.4H29.6l.012.4c.009.392.012.41.094.527a.613.613,0,0,0,.231.2c.138.067.179.073.545.073.46,0,.58-.026.726-.155.176-.155.214-.275.214-.688v-.357H33.2v2.078H20.615v-2.078H22.4Zm10.8,6.976v4.64H20.615v-9.28H33.2Z" transform="translate(-20 512)"/>
+              <path id="Path_89" data-name="Path 89" d="M102-314.531v3.469h9.017V-318H102Zm2.108-2.093v.732h-1.493v-1.464h1.493Zm2.078,0v.732h-1.464v-1.464h1.464Zm2.108,0v.732H106.83v-1.464h1.464Zm2.108,0v.732h-1.493v-1.464H110.4Zm-6.294,2.078v.732h-1.493v-1.464h1.493Zm2.078,0v.732h-1.464v-1.464h1.464Zm2.108,0v.732H106.83v-1.464h1.464Zm2.108,0v.732h-1.493v-1.464H110.4Zm-6.294,2.108v.732h-1.493v-1.464h1.493Zm2.078,0v.732h-1.464v-1.464h1.464Zm2.108,0v.732H106.83v-1.464h1.464Zm2.108,0v.732h-1.493v-1.464H110.4Z" transform="translate(-99.6 323.679)"/>
+            </g>
+          </svg>
+          Thursday 08.6
+        </p>
+        <p class="passenger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11.829" height="12.734" viewBox="0 0 11.829 12.734">
+            <g id="person" transform="translate(-50.8 481.589)">
+              <path id="Path_83" data-name="Path 83" d="M56.339-481.572a3.159,3.159,0,0,0-.88.257,2.97,2.97,0,0,0-1.647,2.05,22.255,22.255,0,0,0-.037,2.768,2.933,2.933,0,0,0,.923,1.8l.231.219v1.35l-.127.112a4.361,4.361,0,0,1-1.084.548c-1.523.649-2.217,1.179-2.624,2.007a2.409,2.409,0,0,0-.28,1.179l-.014.427H62.629v-.34a2.694,2.694,0,0,0-.848-2.039,6.014,6.014,0,0,0-2.076-1.24,3.566,3.566,0,0,1-1.162-.614,2.527,2.527,0,0,1-.037-.718v-.672l.231-.219a2.918,2.918,0,0,0,.923-1.8,22.256,22.256,0,0,0-.037-2.768,2.964,2.964,0,0,0-2.168-2.235A3.543,3.543,0,0,0,56.339-481.572Zm.859.652a2.323,2.323,0,0,1,1.8,1.759,6.266,6.266,0,0,1,.049,1.505,4.764,4.764,0,0,1-.078,1.462,2.485,2.485,0,0,1-.954,1.286l-.147.1.009.908c.012.978.009.96.176,1.2.159.225.484.415,1.361.787a4.594,4.594,0,0,1,2.209,1.465,2.368,2.368,0,0,1,.3.755c.012.055.026.124.032.15.014.049-.248.052-5.237.052H51.469l.017-.081a2.515,2.515,0,0,1,.231-.695,1.544,1.544,0,0,1,.369-.5,5.935,5.935,0,0,1,2.033-1.188c.911-.4,1.191-.582,1.352-.891l.078-.144.009-.908.006-.908-.2-.144a2.483,2.483,0,0,1-.885-1.211L54.4-476.4l-.009-1.26a6.04,6.04,0,0,1,.052-1.514,2.332,2.332,0,0,1,1.788-1.75A2.892,2.892,0,0,1,57.2-480.92Z" transform="translate(0 0)"/>
+            </g>
+          </svg>
+          1
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="row" v-if="rideData">
+          <div>
+            <p class="driver">{{ rideData.driver }}
+              <img src="img/hills-family-dental-platte-city-mo-servicespage-fillings-image.svg" alt="">
+            </p>
+            <p class="rating">{{ rideData.driver_rating }}</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15.4" height="14.69" viewBox="0 0 15.4 14.69">
+              <g id="Star" transform="translate(0)">
+              <path id="Path_68" data-name="Path 68" d="M9.419-511.945c-.048.036-.358.768-1.043,2.48-.533,1.335-.982,2.437-.994,2.449s-1.158.1-2.549.191-2.577.176-2.634.185a.409.409,0,0,0-.191.1.31.31,0,0,0-.021.407c.033.042.952.826,2.04,1.736l1.979,1.654-.63,2.51c-.349,1.381-.634,2.546-.634,2.592a.318.318,0,0,0,.324.328c.109,0-.012.073,2.419-1.457,1.152-.725,2.113-1.317,2.137-1.317s.988.592,2.137,1.317c2.434,1.53,2.31,1.457,2.419,1.457a.318.318,0,0,0,.324-.328c0-.046-.285-1.211-.634-2.592l-.63-2.51,1.967-1.645c1.082-.9,2-1.684,2.04-1.733a.321.321,0,0,0-.2-.522c-.058-.009-1.243-.094-2.634-.185s-2.54-.179-2.549-.191-.458-1.114-.994-2.449c-.691-1.721-.994-2.443-1.043-2.48a.345.345,0,0,0-.2-.055A.345.345,0,0,0,9.419-511.945Z" transform="translate(-1.921 512)" fill="#f1c933"/>
+              </g>
+            </svg>
+          </div> 
+          <p class="price">{{ rideData.price }} €</p> 
+        </div>
+     
+       
+  </div>
+</div>
+      <div class="payment-button-container">
         <payment_button :id="$route.params.id" />
       </div>
-    </div>
-  </div>
-  </div>
+</div>
+</div>
   <banner></banner>
+  <navbar/>
 </template>
+
 
 <script>
 import main_title from '../components/main_title.vue';
@@ -45,14 +78,15 @@ import arrow from '../components/arrow_back.vue';
 import Map from '../components/Map.vue';
 import banner from '../components/banner.vue';
 import { getRideById } from "../composables/ridesApi.js";
-
+import navbar from '../components/navbar.vue';
 export default {
   components: {
     main_title,
     payment_button,
     arrow,
     Map,
-    banner
+    banner,
+    navbar
   },
   data() {
     return {
@@ -83,16 +117,17 @@ export default {
 };
 </script>
 
+
 <style scoped>
+
 .container {
   display: flex;
   flex-direction: column;
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
+  z-index: 9998;
 }
 
 .row {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .row > div {
@@ -102,13 +137,37 @@ export default {
   align-items: center;
 }
 
+.font-bold
+{
+  font-family: Bebas Neue;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .driver {
   color: #1B2B71;
 }
 
-.driver,
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: auto;
+}
 .price {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: bold;
+  margin-left: 140px;
+  font-size: 24px;
+}
+
+.rating {
+  margin-left: 10px;
+}
+.passenger {
+  margin-right: 50px;
 }
 </style>

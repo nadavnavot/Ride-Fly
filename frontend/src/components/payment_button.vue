@@ -53,6 +53,8 @@ export default {
 
 <style>
 .button {
+  font-family: Roboto;
+  font-weight: bold;
   color: black;
   background-color: #F1C933;
   padding: 15px;
@@ -61,10 +63,11 @@ export default {
   width: 140px;
   font-size: larger;
   cursor: pointer;
-  position: fixed;
+  position: relative;
   right: 0;
   bottom: 0;
   margin-bottom: 130px;
-  margin-right: 20px;
+  margin-right: 5px;
+  z-index: 9998;
 }
 </style>

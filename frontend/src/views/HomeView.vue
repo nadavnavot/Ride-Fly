@@ -27,4 +27,5 @@ export default {
   font-family: Roboto;
   color: black;
 }
+
 </style>

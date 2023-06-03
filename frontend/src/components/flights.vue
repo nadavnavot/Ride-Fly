@@ -24,7 +24,7 @@
     </div>
 
     <div class="subtitle">Past flights</div>
-    <div class="card-container">
+    <div class="card-container low-opacity">
       <div class="card low-opacity">
         <div class="card-content">
           <div class="card-header">Zagreb-Charleroi</div>
@@ -46,9 +46,7 @@
       </div>
     </div>
   </div>
-</template>
-
-<style scoped>
+</template><style scoped>
 .subtitle {
   font-family: 'Bebas Neue';
   font-weight: normal;
@@ -60,6 +58,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .card {
@@ -67,7 +67,7 @@
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  width: 100%; /* calc(50% - 10px); Adjust the width to create appropriate spacing */
+  width: 100%; /* calc(50% - 10px);*/
   height: 120px;
   padding: 10px;
   font-family: 'Bebas Neue';
@@ -80,6 +80,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: relative;
+  z-index: 1;
 }
 
 .high-opacity {

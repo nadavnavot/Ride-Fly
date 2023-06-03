@@ -31,8 +31,11 @@ import navbar from '../components/navbar.vue';
 <navbar/>
 </template>
 
-<style>
+<style scoped>
 .chat-icon {
-  float: right;
+  position: fixed;
+  bottom: 20%; 
+  right: 20px;
+  z-index: 9999;
 }
 </style>

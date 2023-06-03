@@ -133,6 +133,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  z-index: 9998;
 }
 
 .wrapper {

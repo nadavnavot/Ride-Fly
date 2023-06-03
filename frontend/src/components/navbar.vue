@@ -71,7 +71,7 @@ export default {
   text-align: center;
   position: fixed;
   background-color: #f8f8f8;
-  z-index: 1;
+  z-index: 9999;
 }
 nav a {
   display: inline-block;

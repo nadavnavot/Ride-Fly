@@ -9,5 +9,9 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  position: fixed;
+  bottom: 20%;
+  right: 0px; 
+  z-index: 9997; /* Place the banner below */
 }
 </style>
