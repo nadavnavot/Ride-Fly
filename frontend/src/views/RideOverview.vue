@@ -1,6 +1,7 @@
 <template>
   <div>
-    <arrow />
+  <div>
+    <arrow_back></arrow_back>
     <main_title style="text-align: center;" title="Ride Overview" />
 
     <Map :departureCoordinates="departureCoordinates" :destinationCoordinates="destinationCoordinates" />
@@ -9,7 +10,6 @@
       <div class="row" v-if="error">
         <div>{{ error }}</div>
       </div>
-
       <div class="column" v-if="rideData">
         <div class="row">
           <p class="column">
@@ -68,13 +68,14 @@
 </div>
   <banner></banner>
   <navbar/>
+</div>
 </template>
 
 
 <script>
 import main_title from '../components/main_title.vue';
 import payment_button from '../components/payment_button.vue';
-import arrow from '../components/arrow_back.vue';
+import arrow_back from '../components/arrow_back.vue';
 import Map from '../components/Map.vue';
 import banner from '../components/banner.vue';
 import { getRideById } from "../composables/ridesApi.js";
@@ -83,7 +84,7 @@ export default {
   components: {
     main_title,
     payment_button,
-    arrow,
+    arrow_back,
     Map,
     banner,
     navbar

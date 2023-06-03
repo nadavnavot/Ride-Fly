@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		<arrow_back></arrow_back>
 		<div class="header">
 			<h1>Chatroom</h1>
 			<p class="username">Username: {{ username }}</p>
@@ -12,11 +13,12 @@
 <script>
 import io from 'socket.io-client';
 import ChatRoom from '../components/ChatRoom.vue'
-
+import arrow_back from '../components/arrow_back.vue'
 export default {
 	name: 'ride-fly',
 	components: {
-		ChatRoom
+		ChatRoom,
+		arrow_back
 	},
 	created() {
 		this.client = io("http://localhost:3000");

@@ -6,8 +6,8 @@
         <div class="card-content">
           <div class="card-header">Seville-Bologna</div>
           <div class="list">
-            <div class="list-item">25.1</div>
-            <div class="list-item">6:07</div>
+            <div class="list-item">Date: 25.1</div>
+            <div class="list-item">Departure Time: 6:07</div>
           </div>
         </div>
       </div>
@@ -16,8 +16,8 @@
         <div class="card-content">
           <div class="card-header">Bologna-Seville</div>
           <div class="list">
-            <div class="list-item">29.1</div>
-            <div class="list-item">7:30</div>
+            <div class="list-item">Date: 29.1</div>
+            <div class="list-item">Departure Time: 7:30</div>
           </div>
         </div>
       </div>
@@ -29,8 +29,8 @@
         <div class="card-content">
           <div class="card-header">Zagreb-Charleroi</div>
           <div class="list">
-            <div class="list-item">5.11</div>
-            <div class="list-item">12:10</div>
+            <div class="list-item">Date: 5.11</div>
+            <div class="list-item">Departure Time: 12:10</div>
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@
         <div class="card-content">
           <div class="card-header">Charleroi-Zagreb</div>
           <div class="list">
-            <div class="list-item">9.11</div>
-            <div class="list-item">6:30</div>
+            <div class="list-item">Date: 9.11</div>
+            <div class="list-item">Departure Time: 6:30</div>
           </div>
         </div>
       </div>

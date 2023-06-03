@@ -4,16 +4,20 @@ export default {
     main_title,
     message,
     banner,
-    navbar
+    navbar,
+    arrow_back
 }  
 }
 import main_title from '../components/main_title.vue';
 import message from '../components/message.vue';
 import banner from '../components/banner.vue';
 import navbar from '../components/navbar.vue';
+import arrow_back from '../components/arrow_back.vue';
 </script>
 
 <template>
+  <div>
+  <arrow_back />
   <main_title title="Messages" />
   <router-link to="/Messages"><message/>
   </router-link>
@@ -29,6 +33,7 @@ import navbar from '../components/navbar.vue';
 </div>
 </router-link>
 <navbar/>
+</div>
 </template>
 
 <style scoped>

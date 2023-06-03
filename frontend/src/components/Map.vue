@@ -61,7 +61,7 @@ export default {
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${coordinate.lat},${coordinate.lng}`,
-            key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ'
+            key: 'API_KEY'
           }
         })
         .then((response) => {
@@ -78,7 +78,7 @@ export default {
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             latlng: `${coordinate.lat},${coordinate.lng}`,
-            key: 'AIzaSyAsfiqTHERuY69mAFw6m2FP3g8nXFpSPnQ'
+            key: 'API_KEY'
           }
         })
         .then((response) => {
