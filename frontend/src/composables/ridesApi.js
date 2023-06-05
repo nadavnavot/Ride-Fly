@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ref } from "vue";
 
-// Function to get all the rides in the database (works)
+// Function to get all the rides in the database 
 async function getAllRides() {
   const url = "http://localhost:3000/api/rides";
   const ridesData = ref([]);
@@ -26,7 +26,7 @@ async function getAllRides() {
   }
 }
 
-//Function to get a spesific ride by its ID (detail page) (works)
+//Function to get a spesific ride by its ID (detail page) 
 async function getRideById(id) {
   const url = `http://localhost:3000/api/rides/${id}`;
   const rideData = ref(null);
@@ -55,7 +55,7 @@ async function getRideById(id) {
   }
 }
 
-// Function to update the booked field in the database after successful payment (Works)
+// Function to update the booked field and the booked_time in the database after successful payment 
 async function updateRide(id) {
   try {
     const response = await axios.put(`http://localhost:3000/api/rides/${id}`, {
@@ -69,7 +69,7 @@ async function updateRide(id) {
 }
 
 
-// Function to fetch the booked rides (Works!)
+// Function to fetch the booked rides 
 async function getBookedRides() {
   const url = "http://localhost:3000/api/rides";
   const bookedRides = ref([]);

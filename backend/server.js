@@ -14,9 +14,6 @@ app.use(express.json())
 app.use("/api", api)
 
 
-
-
-
 // The http constant creates an HTTP server instance that wraps the app instance.
 const http = require("http").Server(app);
 //The io constant creates a new Socket.io instance, passing the http server as an argument.

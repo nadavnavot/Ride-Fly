@@ -2,30 +2,27 @@
 import main_title from '../components/main_title.vue';
 import card from '../components/card.vue';
 import navbar from '../components/navbar.vue';
-
+import date from '../components/date.vue';
+import banner from '../components/banner.vue';
 
 export default {
   components: {
-    main_title, card, navbar
+    main_title, card, navbar, date, banner
   }
 };
 </script>
 
 <template>
-  <div>
     <main_title title="Home" />
+    <div class="margin-top">
+    <date/></div>
     <card :items="cards" />
-  </div>
-
-
-  <!-- <img src="../assets/background.png"> -->
+    <banner/>
 <navbar/>
 </template>
 
-<!-- <style>
-img {
-  width: 100%;
-  margin-top: 80px;
-  margin-left: -10px;
+<style>
+.margin-top{
+margin-top: 15px;
 }
-</style> -->
+</style>

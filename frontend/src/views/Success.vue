@@ -1,15 +1,3 @@
-<template>
-  <div class="center-title">
-    <h1>Successful payment</h1>
-    <div class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
-    <h4 class="loading-text">You will be redirected to your ride in a few seconds...</h4>
-  </div>
-</template>
-
 <script>
 import { updateRide } from '../composables/ridesApi';
 
@@ -26,6 +14,20 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="center-title">
+    <h1>Successful payment</h1>
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <h4 class="loading-text">You will be redirected to your ride in a few seconds...</h4>
+  </div>
+</template>
+
+
 
 <style>
 .center-title {

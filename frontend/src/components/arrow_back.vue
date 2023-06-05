@@ -18,5 +18,6 @@ methods: {
 <style>
 .arrow_back{
 cursor: pointer;
+
 }
 </style>

@@ -1,101 +1,113 @@
-<script>
-
-</script>
-
 <template>
   <div>
     <div class="subtitle">Upcoming flights</div>
-      <div class="card high-opacity">
+    <div class="card-container">
+      <div class="flight high-opacity">
         <div class="card-content">
-          <div class="card-header">
-            Location-Destination <!-- {{ location }} - {{ destination }} --></div>
-
-            <div class="list">
-              <div class="list-item">25.1<!--{{ date }}--></div>
-              <div class="list-item">6:28<!--{{ time }}--></div>
-            </div>
+          <div class="card-header">Seville-Bologna</div>
+          <div class="list">
+            <div class="list-item">Date: 25.1</div>
+            <div class="list-item">Departure Time: 6:07</div>
+          </div>
+        </div>
       </div>
-  </div>
 
-  <div>
+      <div class="flight high-opacity">
+        <div class="card-content">
+          <div class="card-header">Bologna-Seville</div>
+          <div class="list">
+            <div class="list-item">Date: 29.1</div>
+            <div class="list-item">Departure Time: 7:30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="subtitle">Past flights</div>
-      <div class="card low-opacity">
+    <div class="card-container low-opacity">
+      <div class="flight low-opacity">
         <div class="card-content">
-          <div class="card-header">
-            Location-Destination <!-- {{ location }} - {{ destination }} --></div>
-            <div class="list">
-              <div class="list-item">25.1<!--{{ date }}--></div>
-              <div class="list-item">6:28<!--{{ time }}--></div>
-            </div>
+          <div class="card-header">Zagreb-Charleroi</div>
+          <div class="list">
+            <div class="list-item">Date: 5.11</div>
+            <div class="list-item">Departure Time: 12:10</div>
+          </div>
+        </div>
+      
       </div>
+    </div>
   </div>
-  <div class="banner medium-opacity">
-    <!-- content for the banner goes here -->
-  </div>
-</div>
-</div>
-  </template>
+</template>
 
-<style scoped>
+<style>
 .subtitle {
-  font-family: Bebas Neue;
+  font-family: 'Bebas Neue';
   font-weight: normal;
   font-size: 18px;
   margin-top: 30px;
 }
-.card {
-  background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/123d277a-city-7964-164a8b5c3d0.svg');
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.flight {
+  background-image: url('../../img/123d277a-city-7964-164a8b5c3d0.svg');
   background-size: cover;
   background-position: center;
-  height: 100px;
-  width: 150px;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  width: 100%; 
+  height: 120px;
+  padding: 10px;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
 }
 
 .high-opacity {
-  opacity: 0.75;
+  opacity: 0.80;
 }
 
 .medium-opacity {
-  opacity: 0.50;
+  opacity: 0.60;
 }
 
 .low-opacity {
-  opacity: 0.40;
+  opacity: 0.50;
 }
 
 .card-content {
-  font-family: Bebas Neue;
+  font-family: 'Bebas Neue';
   font-weight: normal;
-  font-size: 16px;
-  color:black;
+  font-size: 18px;
+  color: black;
   padding: 20px;
   text-align: center;
 }
+
 .card-header {
   margin: auto;
 }
+
 .list {
   display: flex;
   margin: auto;
+  padding: 20px;
 }
+
 .list-item {
   flex: 1;
 }
-
-.banner {
-  background-image: url('/Users/carloslaptop4/Desktop/IDPA/year 2/SEMESTER 2/Product 4/Ride-Fly/frontend/img/Screen Shot 2022-11-22 at 14.50.05.svg');
-  height: 120px;
-  width: 100%;
-  background-repeat: repeat;
-  background-position: center;
-}
-
 </style>

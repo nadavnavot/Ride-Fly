@@ -1,22 +1,15 @@
-<template>
-	<div id="app">
-		<div class="header">
-			<h1>Chatroom</h1>
-			<p class="username">Username: {{ username }}</p>
-			<p class="online">Online: {{ users.length }}</p>
-		</div>
-		<ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
-	</div>
-</template>
-
 <script>
 import io from 'socket.io-client';
 import ChatRoom from '../components/ChatRoom.vue'
+import arrow from '../components/arrow_back.vue'
+import main_title from '../components/main_title.vue';
 
 export default {
 	name: 'ride-fly',
 	components: {
-		ChatRoom
+		ChatRoom,
+		main_title,
+		arrow
 	},
 	created() {
 		this.client = io("http://localhost:3000");
@@ -68,8 +61,22 @@ export default {
 	}
 </script>
 
+<template>
+	<div id="app">
+		<div class="title-wrapper">
+      <arrow/>
+      <main_title title="Chatroom" />
+    </div>
+		<div class="header">
+			<h2 class="username">Username: {{ username }}</h2>
+			<h3 class="online">Online: {{ users.length }}</h3>
+		</div>
+		<ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
+	</div>
+</template>
 
-<style lang="scss">
+
+<style>
 body {
 	font-family: Bebas Neue;
     font-weight: normal;
@@ -87,4 +94,22 @@ body {
 	padding: 15px;
 	box-sizing: border-box;
 }
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow_back {
+  position: absolute;
+  left: 0;}
+
+  .header{
+	margin-bottom: 20px;
+	margin-top: 30px;
+  }
+
+  .online{
+	color: black;
+  }
 </style>
