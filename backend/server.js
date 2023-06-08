@@ -33,7 +33,7 @@ let users = [];
 let messages = [];
 
 // Connects the application to a MongoDB database using the Mongoose library.
-mongoose.connect("mongodb+srv://Adinda:In1992diaadinda@cluster0.gf4ehvm.mongodb.net/ride_fly")
+mongoose.connect("mongodb+srv://DATABASE_URL")
 
 
 //** Chat Model*//

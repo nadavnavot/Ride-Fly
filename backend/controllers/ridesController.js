@@ -22,6 +22,8 @@ async function getRideById(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
+
 async function updateRide(req, res) {
   const id = req.params.id;
   try {
