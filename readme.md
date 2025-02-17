@@ -1,6 +1,21 @@
-Ride & Fly is a full-stack carpool app developed as an external service for Ryanair, designed to benefit both the company and its passengers. The app helps travelers reach early morning flights safely and affordably while enabling Ryanair to increase passenger numbers on flights that are typically less occupied.
+# 🚗 Ride & Fly – A Carpool App for Ryanair  
 
-Developed over two semesters, the project involved the full product development process, including research, UX research, design, prototyping, and programming. As a full-stack application, Ride & Fly provides users with features such as viewing available rides, checking ride details, booking a ride, and communicating with drivers through an integrated chat feature.
+**Ride & Fly** is a full-stack carpool application developed as an external service for **Ryanair**, designed to benefit both the company and its passengers. The app helps travelers reach early morning flights **safely** and **affordably**, while also enabling Ryanair to increase passenger numbers on flights that are typically less occupied.  
+
+## ✈️ Project Overview  
+
+Developed over **two semesters**, this project followed the **full product development lifecycle**, including:  
+
+✅ **Research & UX Research**  
+✅ **UI/UX Design & Prototyping**  
+✅ **Frontend & Backend Development**  
+
+As a **full-stack application**, Ride & Fly provides users with features such as:  
+
+✔️ **Viewing Available Rides**  
+✔️ **Checking Ride Details**  
+✔️ **Booking a Ride**  
+✔️ **Communicating with Drivers (Integrated Chat Feature)**  
 
 ![Main Image](frontend/img/main.png)
 ![Ride overview Image](frontend/img/2.png)
