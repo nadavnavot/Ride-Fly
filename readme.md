@@ -9,6 +9,7 @@
 Developed over **two semesters**, this project followed the **full product development lifecycle**, including:  
 
 ✅ **Research & UX Research**  
+✅ **Market & Business Strategy**  
 ✅ **UI/UX Design & Prototyping**  
 ✅ **Frontend & Backend Development**  
 
